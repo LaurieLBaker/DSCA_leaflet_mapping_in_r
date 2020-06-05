@@ -7,7 +7,7 @@ This course introduces students to the grammar of graphics and building a plot u
 
 **Learning Outcome**
 
-Students should be familiar with how a plot is built using ggplot and ways to build and customise their plots. 
+Students will become familiar with how a plot is built using ggplot and leaflet and ways to build and customise their plots using both packages. 
 
 **Lead Developer**
 Laurie Baker
@@ -20,7 +20,8 @@ Richard Leyshon
 Students with familiar with R wishing to advance their data visualisation skills. 
 
 **Learning Objective**
-Single paragraph - 
+
+Students will become familiar with how a plot is built using ggplot and leaflet and ways to build and customise their plots using both packages. 
 
 **Course Type** (Fixed length list.)
 * E learning - Available
