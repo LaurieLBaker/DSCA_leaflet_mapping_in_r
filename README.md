@@ -11,9 +11,11 @@ This course introduces students to the grammar of graphics and building a plot u
 Students will become familiar with how a plot is built using ggplot and leaflet and ways to build and customise their plots using both packages. 
 
 **Lead Developer**
+
 Laurie Baker
 
 **Course Reviewer(s)**
+
 Richard Leyshon
 
 **Intended Audience**
@@ -25,14 +27,17 @@ Students with familiar with R wishing to advance their data visualisation skills
 Students will become familiar with how a plot is built using ggplot and leaflet and ways to build and customise their plots using both packages. 
 
 **Course Type** (Fixed length list.)
+
 * E learning - Available
 * Self learning - Not Available
 * Face to face - Available
 
 **Skill Level**
+
 Beginner
 
 **Pre requisite summary** 
+
 Introduction to R. R and RStudio. Packages: tidyverse, gapminder, leaflet. 
 
 **Order of material list**
