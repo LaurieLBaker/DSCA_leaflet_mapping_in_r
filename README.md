@@ -3,6 +3,7 @@
 ### Version 1
 
 **Course Summary**
+
 This course introduces students to the grammar of graphics and building a plot using ggplot2. In the second part, students are introduced to building interactive maps using leaflet.  
 
 **Learning Outcome**
