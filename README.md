@@ -22,9 +22,12 @@ Richard Leyshon
 
 Students with familiar with R wishing to advance their data visualisation skills. 
 
-**Learning Objective**
+**Learning Objective Detail**
 
-Students will become familiar with how a plot is built using ggplot and leaflet and ways to build and customise their plots using both packages. 
+At the end of the course, participants will:-
+
+
+* become familiar with how a plot is built using ggplot and leaflet and ways to build and customise their plots using both packages. 
 
 **Course Type** (Fixed length list.)
 
@@ -34,7 +37,7 @@ Students will become familiar with how a plot is built using ggplot and leaflet 
 
 **Skill Level**
 
-Beginner
+Intermediate
 
 **Pre requisite summary** 
 
