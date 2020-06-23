@@ -6,7 +6,7 @@
 
 This course introduces students to the grammar of graphics and building a plot using ggplot2. In the second part, students are introduced to building interactive maps using leaflet.  
 
-**Course Outcome**
+**Course Objective**
 
 Students will become familiar with how a plot is built using ggplot and leaflet and ways to build and customise their plots using both packages. 
 
