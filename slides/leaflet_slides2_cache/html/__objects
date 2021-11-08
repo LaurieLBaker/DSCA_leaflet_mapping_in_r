@@ -1,0 +1,41 @@
+unnamed-chunk-1	.Random.seed
+nc-data	nc_df
+nc-data2	nc
+nc-view	
+nc-str	
+first-map1a	
+first-map1b	
+first-map1c	
+first-map1d	
+first-map1e	
+checking the CRS	
+changing the CRS using st_transform	nc
+first-leaflet-map1a	.leaflet_slides2_cache/html/first-leaflet-map1a_5968547f9a3b9b45188104dab63c7295_meta
+first-leaflet-map1b	.leaflet_slides2_cache/html/first-leaflet-map1b_121fef51fd50f6dcdd6f2d9fbcceee50_meta
+first-leaflet-map1c	.leaflet_slides2_cache/html/first-leaflet-map1c_8cc67f756a3812d44307c2aa76315b9b_meta
+first-leaflet-map1d	.leaflet_slides2_cache/html/first-leaflet-map1d_22f1fba9827de9e8f1670db722f90869_meta
+first-leaflet-map1e	.leaflet_slides2_cache/html/first-leaflet-map1e_85c7c0a3a1b9c5ae4abb8bedb0b007ca_meta
+unnamed-chunk-2	
+pal-sequential	
+pal-diverging	
+Defining colour bins	bins
+Defining the palette	pal74	pal79
+first-leaflet-map1f	.leaflet_slides2_cache/html/first-leaflet-map1f_3cedb61c72652e5fe6bfc1856ce15b2f_meta
+first-leaflet-map1g	.leaflet_slides2_cache/html/first-leaflet-map1g_71bfc6f63a0677b61493129876a0321b_meta
+what can you customise with addPolygons	
+first-leaflet-map1h	m1	.leaflet_slides2_cache/html/first-leaflet-map1h_9d47ddfefd6f4da8e41eaf2998318c35_meta
+first-leaflet-map1j	.leaflet_slides2_cache/html/first-leaflet-map1j_356424ae4037c39cdf40caf07f308bc1_meta
+Make our labels	labels
+first-leaflet-map1k	m1	.leaflet_slides2_cache/html/first-leaflet-map1k_68df6c0a717437d3e8ea6e30d7269eea_meta
+first-leaflet-map1l	m1	.leaflet_slides2_cache/html/first-leaflet-map1l_c412d5542c46032923a271ea5957c888_meta
+labels for second map	labels79
+unnamed-chunk-3	m2
+leaflet-map2a	
+unnamed-chunk-4	.leaflet_slides2_cache/html/unnamed-chunk-4_6365bb0626d9c7a839da037c5c4f7e85_meta
+leaflet-map3	.leaflet_slides2_cache/html/leaflet-map3_207d6379f12ff0fe81dd3c3a7fff1f4c_meta
+leaflet-map-points	work
+data-preview	.leaflet_slides2_cache/html/data-preview_21e36527f9b6ec74f4e22a5ca0db87b8_meta
+work-leaflet	.leaflet_slides2_cache/html/work-leaflet_9d1825832f23e203b978aeb9d26b2e57_meta
+work-leaflet1	.leaflet_slides2_cache/html/work-leaflet1_0a7ba84914c88e82cb21e87e9967b49d_meta
+point-labels	labels
+unnamed-chunk-5	work_map	.leaflet_slides2_cache/html/unnamed-chunk-5_f418a8ac99a6e95b5ad273545777a802_meta
