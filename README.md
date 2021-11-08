@@ -36,7 +36,7 @@ At the end of the course, participants will:-
 * Be familiar with how to customise a plot by changing the background tile, polygon colours and fill and adding pop up labels.
 
 
-**Course Type** (Fixed length list.)
+**Course Type**
 
 * Online learning - Not Available
 * Independent learning - Not Available
@@ -51,8 +51,7 @@ Intermediate
 Students should have completed the course Introduction to R. The students will need a recent version of R and RStudio and the packages tidyverse, gapminder, and leaflet. 
 
 **Order of material list**
-1. There is a pdf copy of the the ggplot2 and leaflet course slides in the folder slides.
-2. The exercises folder included the accompanying exercises for ggplot2. Leaflet exercises are still being prepared. 
+1. Access the [slides](slides/leaflet_slides2.html) using this link
 
 **Acknowledgements**
 
