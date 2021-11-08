@@ -36,7 +36,7 @@ class: center, middle, inverse, title-slide
 # Data Visualisation in R
 ## Introduction to leaflet
 ### Dr. Laurie Baker
-### Bates College
+### Bates College adapted from Data Science Campus
 ### 2020/04/09 (updated: 2021-11-08)
 
 ---
@@ -430,18 +430,6 @@ st_crs(nc)
 ```
 
 * The CRS is specified in the attributes `epsg` and `proj4string`. 
-
---
-
-* What is the [epsg](epsg.io)? 
-
---
-
-* What is the proj4string?
-
---
-
-* What is WT
 
 ---
 layout: true
@@ -1162,8 +1150,8 @@ leaflet(work) %&gt;%
 
 .right-plot[
 
-<div id="htmlwidget-1d5c74e3fc7154b1a757" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1d5c74e3fc7154b1a757">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Stamen.Watercolor",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addProviderTiles","args":["Stamen.TerrainLabels",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[-33.0472,-25.429,43.9337,54.0865,-3.3995,-1.9415,18.0179,-25.2637,55.760869],[-71.6127,-49.2671,-59.9149,13.3923,36.7968,30.0574,-76.8099,-57.5759,-4.22407],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-33.0472,55.760869],"lng":[-76.8099,36.7968]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-58edb86d4c1c90cba147" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-58edb86d4c1c90cba147">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Stamen.Watercolor",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addProviderTiles","args":["Stamen.TerrainLabels",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[-33.0472,-25.429,43.9337,54.0865,-3.3995,-1.9415,18.0179,-25.2637,55.760869],[-71.6127,-49.2671,-59.9149,13.3923,36.7968,30.0574,-76.8099,-57.5759,-4.22407],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-33.0472,55.760869],"lng":[-76.8099,36.7968]}},"evals":[],"jsHooks":[]}</script>
 
 ]
 ---
@@ -1184,8 +1172,8 @@ leaflet(work) %&gt;%
 
 .right-plot[
 
-<div id="htmlwidget-a69843afde80a6754099" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a69843afde80a6754099">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Stamen.Watercolor",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addProviderTiles","args":["Stamen.TerrainLabels",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[-33.0472,-25.429,43.9337,54.0865,-3.3995,-1.9415,18.0179,-25.2637,55.760869],[-71.6127,-49.2671,-59.9149,13.3923,36.7968,30.0574,-76.8099,-57.5759,-4.22407],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2},{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-33.0472,55.760869],"lng":[-76.8099,36.7968]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1d5c74e3fc7154b1a757" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1d5c74e3fc7154b1a757">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Stamen.Watercolor",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addProviderTiles","args":["Stamen.TerrainLabels",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[-33.0472,-25.429,43.9337,54.0865,-3.3995,-1.9415,18.0179,-25.2637,55.760869],[-71.6127,-49.2671,-59.9149,13.3923,36.7968,30.0574,-76.8099,-57.5759,-4.22407],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2},{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-33.0472,55.760869],"lng":[-76.8099,36.7968]}},"evals":[],"jsHooks":[]}</script>
 
 ]
 

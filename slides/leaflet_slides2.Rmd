@@ -342,18 +342,6 @@ st_crs(nc)
 
 * The CRS is specified in the attributes `epsg` and `proj4string`. 
 
---
-
-* What is the [epsg](epsg.io)? 
-
---
-
-* What is the proj4string?
-
---
-
-* What is WT
-
 ---
 layout: true
 # Transforming coordinate reference system
