@@ -936,7 +936,7 @@ layout: true
 ---
 
 .left-code[
-
+ 
 
 ```{r work-leaflet, eval=FALSE}
 leaflet(work) %>% 
@@ -953,7 +953,7 @@ leaflet(work) %>%
 ```{r work-leaflet, ref.label='work-leaflet', echo=FALSE, out.width="100%"}
 ```
 
-]
+] 
 ---
 
 .left-code[
