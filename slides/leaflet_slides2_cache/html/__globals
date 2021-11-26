@@ -44,3 +44,4 @@ point-labels	::	%>%	$	lapply	sprintf	work
 work-map-labels	%>%	~	$	addCircleMarkers	addProviderTiles	leaflet	providers	work
 setup	::	$	$<-	if	library	options
 leaflet-map-work	%>%	~	$	addCircleMarkers	addProviderTiles	leaflet	providers	work
+spatial-data-types	::

@@ -150,7 +150,12 @@ layout: false
   * **lines** (LINESTRING, MULTILINESTRING)
   * **polygons** (POLYGON, MULTIPOLYGON)
   
-![](images/spatial_data_types.jpg)
+```{r spatial-data-types, fig.alt = "Diagram showing series of points (GPS locations), lines (roads), and polygons (e.g. countries and regions)", echo=FALSE}
+
+knitr::include_graphics(path = "images/spatial_data_types.jpg")
+
+```  
+
 
 
 ---
@@ -248,7 +253,7 @@ ggplot(nc) #<<
 ]
 
 .right-plot[
-```{r first-map1a, ref.label='first-map1a', echo=FALSE, out.width="95%"}
+```{r first-map1a, ref.label='first-map1a', echo=FALSE, out.width="95%", fig.alt="Empty plotting area"}
 ```
 ]
 
@@ -270,7 +275,7 @@ ggplot(nc) +
 ]
 
 .right-plot[
-```{r first-map1b, ref.label='first-map1b', echo=FALSE, out.width="95%"}
+```{r first-map1b, ref.label='first-map1b', echo=FALSE, out.width="95%", fig.alt="Map of North Carolina showing border of counties."}
 ```
 ]
 
@@ -293,7 +298,7 @@ ggplot(nc) +
 ]
 
 .right-plot[
-```{r first-map1c, ref.label='first-map1c', echo=FALSE, out.width="95%"}
+```{r first-map1c, ref.label='first-map1c', echo=FALSE, out.width="95%", fig.alt="Map of North Carolina with administrative regions filled by number of Sudden Infant Death Syndrome (SIDS) cases for North Carolina counties from 1974-78."}
 ```
 ]
 
@@ -304,10 +309,10 @@ ggplot(nc) +
 ```{r first-map1d, eval=FALSE}
 ggplot(nc) +
   geom_sf(aes(fill = births1974)) +
-  labs(title = "Births per county in 1974", #<<
+  labs(title = "SIDS cases per county in 1974-1978", #<<
        x = "Longitude", #<<
        y = "Latitude", #<<
-       fill = "Births") #<<
+       fill = "# SIDS cases") #<<
 ```
 
 * Data
@@ -319,7 +324,7 @@ ggplot(nc) +
 ]
 
 .right-plot[
-```{r first-map1d, ref.label='first-map1d', echo=FALSE, out.width="95%"}
+```{r first-map1d, ref.label='first-map1d', echo=FALSE, out.width="95%", fig.alt="Map updated to include a title, x and y axis labels, and a legend.  Map of North Carolina with administrative regions filled by number of Sudden Infant Death Syndrome (SIDS) cases for North Carolina counties from 1974-78. On the x axis, longitude, on the y axis latitude, and a legend indicating the number of suddent infant death cases."}
 ```
 ]
 
@@ -330,10 +335,10 @@ ggplot(nc) +
 ```{r first-map1e, eval=FALSE}
 ggplot(nc) +
   geom_sf(aes(fill = births1974)) +
-  labs(title = "Births per county in 1974",
+  labs(title = "SIDS cases per county in 1974-1978",
        x = "Longitude",
        y = "Latitude", 
-       fill = "Births") +
+       fill = "# SIDS cases") +
   scale_y_continuous(breaks = 34:36) #<<
 ```
 
@@ -345,7 +350,7 @@ ggplot(nc) +
 ]
 
 .right-plot[
-```{r first-map1e, ref.label='first-map1e', echo=FALSE, out.width="95%"}
+```{r first-map1e, ref.label='first-map1e', echo=FALSE, out.width="95%", fig.alt="Map updated so that the y axis has breaks at 34, 35, and 36 degrees latitude. Map of North Carolina with administrative regions filled by number of Sudden Infant Death Syndrome (SIDS) cases for North Carolina counties from 1974-78. On the x axis, longitude, on the y axis latitude, and a legend indicating the number of suddent infant death cases."}
 ```
 ]
 
@@ -371,13 +376,13 @@ layout: true
 # Coordinate reference system can skew true size
 ---
 
-```{r kenya-true-size, fig.alt = "Map of the world showing Kenya overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is", echo=FALSE, fig.cap = "The True Size of (thetruesize.com)"}
+```{r kenya-true-size, fig.alt = "Map of the world showing Kenya overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is", echo=FALSE, out.width = "70%"}
 
 knitr::include_graphics(path = "images/Kenya_true_size.png")
 
 ```
 
-[The True Size Of at thetruesize.com](https://thetruesize.com/#?borders=1~!MTczMDY3NDE.MTE4OTczMjc*MjU3NDY1NzA(MzkyMTU3MA~!KE*OTYxNTIxNw.MTY3MDYyNzg)NA)
+[The True Size Of: thetruesize.com](https://thetruesize.com/#?borders=1~!MTczMDY3NDE.MTE4OTczMjc*MjU3NDY1NzA(MzkyMTU3MA~!KE*OTYxNTIxNw.MTY3MDYyNzg)
 
 
 
@@ -447,7 +452,7 @@ leaflet(data = nc)
 ]
 
 .right-plot[
-```{r first-leaflet-map1a, ref.label='first-leaflet-map1a', echo=FALSE, out.width="100%"}
+```{r first-leaflet-map1a, ref.label='first-leaflet-map1a', echo=FALSE, out.width="100%", fig.alt = "Gray square showing blank base where leaflet map will be plotted"}
 ```
 ]
 
@@ -464,7 +469,7 @@ leaflet(data = nc) %>%
 ]
 
 .right-plot[
-```{r first-leaflet-map1b, ref.label='first-leaflet-map1b', echo=FALSE, out.width="100%"}
+```{r first-leaflet-map1b, ref.label='first-leaflet-map1b', echo=FALSE, out.width="100%", fig.alt = "Leaflet map showing map of the world zoomed out so that the world is repeating"}
 ```
 ]
 
@@ -493,7 +498,7 @@ leaflet(data = nc) %>%
 ]
 
 .right-plot[
-```{r first-leaflet-map1c, ref.label='first-leaflet-map1c', echo=FALSE, out.width="100%"}
+```{r first-leaflet-map1c, ref.label='first-leaflet-map1c', echo=FALSE, out.width="100%", fig.alt = "OpenStreet base map showing the south-eastern USA including states east of Missouri and Louisianna."}
 ```
 ]
 
@@ -515,7 +520,7 @@ leaflet(data = nc) %>%
 ]
 
 .right-plot[
-```{r first-leaflet-map-kenya, ref.label='first-leaflet-map-kenya', echo=FALSE, out.width="100%"}
+```{r first-leaflet-map-kenya, ref.label='first-leaflet-map-kenya', echo=FALSE, out.width="100%", fig.alt="Leaflet map of Kenya with open street map background"}
 ```
 ]
 
@@ -540,7 +545,7 @@ leaflet(data = nc) %>%
 
 .right-plot[
 
-```{r first-leaflet-map1d-provider, ref.label='first-leaflet-map1d-provider', echo=FALSE, out.width="100%"}
+```{r first-leaflet-map1d-provider, ref.label='first-leaflet-map1d-provider', echo=FALSE, out.width="100%", fig.alt = "Leaflet map of Southeastern USA with terrain base map"}
 ```
 
 N.B. The different provider tiles come with different licensing and some require an API.
@@ -562,7 +567,7 @@ leaflet(data = nc) %>%
 ]
 
 .right-plot[
-```{r first-leaflet-map1e, ref.label='first-leaflet-map1e', echo=FALSE}
+```{r first-leaflet-map1e, ref.label='first-leaflet-map1e', echo=FALSE, fig.alt="Leaflet map of Southeastern USA with terrain base map with blue polygons showing outline of counties in North Carolina"}
 ```
 ]
 
@@ -573,7 +578,7 @@ layout: true
 ---
 
 
-```{r Color-brewer, echo = FALSE, out.width=550, fig.align='center', fig.cap="Map of U.S. Counties showing green blue colour scheme"}
+```{r Color-brewer, echo = FALSE, out.width=550, fig.align='center', fig.alt="Map of U.S. Counties showing green blue colour scheme"}
 
 knitr::include_graphics("images/ColorBrewer_Ex.PNG")
 ```
@@ -601,7 +606,7 @@ layout: true
 
 * `RColorBrewer` includes **sequential** colour palettes (e.g. number of people).
 
-```{r pal-sequential, eval=TRUE}
+```{r pal-sequential, eval=TRUE, out.width="70%", fig.alt="Diagram showing sequential palettes available in RColorBrewer including Orange to Red and more"}
 display.brewer.all(type = "seq")
 ```
 
@@ -613,7 +618,7 @@ layout: true
 * `RColorBrewer` includes **diverging** colour palettes (e.g. to show distinct categories).
 
 
-```{r pal-diverging, eval=TRUE}
+```{r pal-diverging, eval=TRUE, out.width="70%", fig.alt="Diagram showing sequential palettes available in RColorBrewer including Spectral and Red to Blue"}
 display.brewer.all(type = "div")
 ```
 
@@ -670,7 +675,7 @@ leaflet(data = nc) %>%
 ]
 
 .right-plot[
-```{r first-leaflet-map1f, ref.label='first-leaflet-map1f', echo=FALSE, out.width="100%"}
+```{r first-leaflet-map1f, ref.label='first-leaflet-map1f', echo=FALSE, out.width="100%", fig.alt="Leaflet map of Southeastern USA with ESRI ocean base map with white polygons showing outline of counties in North Carolina. Counties are colored by the number of cases of Sudden Infant Death Syndrome. The fill is set to be partly transparent."}
 ```
 ]
 
@@ -698,7 +703,7 @@ leaflet(data = nc) %>%
 ]
 
 .right-plot[
-```{r first-leaflet-map1g, ref.label='first-leaflet-map1g', echo=FALSE, out.width="100%"}
+```{r first-leaflet-map1g, ref.label='first-leaflet-map1g', echo=FALSE, out.width="100%", fig.alt="Leaflet map of Southeastern USA with ESRI ocean base map with blue polygons showing outline of counties in North Carolina. Counties are colored by the number of cases of Sudden Infant Death Syndrome. The fill is not transparent."}
 ```
 
 * **Your Turn** Try changing the `color`, `opacity`, and `weight`
@@ -752,7 +757,7 @@ m1 %>%
 ]
 
 .right-plot[
-```{r first-leaflet-map1h, ref.label='first-leaflet-map1h', echo=FALSE, out.width="100%"}
+```{r first-leaflet-map1h, ref.label='first-leaflet-map1h', echo=FALSE, out.width="100%", fig.alt="Leaflet map of Southeastern USA with the terrain base map with blue polygons showing outline of counties in North Carolina. Counties are colored by the number of cases of Sudden Infant Death Syndrome. The fill is set to be partly transparent, the color of the administrative unit border is white."}
 ```
 ]
 
@@ -779,7 +784,7 @@ m1 %>%
 ]
 
 .right-plot[
-```{r first-leaflet-map1j, ref.label='first-leaflet-map1j', echo=FALSE, out.width="100%"}
+```{r first-leaflet-map1j, ref.label='first-leaflet-map1j', echo=FALSE, out.width="100%", fig.alt="Leaflet map of Southeastern USA with ESRI ocean base map with white polygons showing outline of counties in North Carolina. Counties are colored by the number of cases of Sudden Infant Death Syndrome. When you hover over a county the border turns blue and becomes thicker, and the fill is not transparent and the county is brought forward."}
 ```
 ]
 
@@ -833,7 +838,7 @@ PHP - Hypertext Preprocessor
 ]
 
 .right-plot[
-```{r first-leaflet-map1k, ref.label='first-leaflet-map1k', echo=FALSE, out.width="100%"}
+```{r first-leaflet-map1k, ref.label='first-leaflet-map1k', echo=FALSE, out.width="100%", fig.alt="Leaflet map of Southeastern USA with ESRI ocean base map with white polygons showing outline of counties in North Carolina. Counties are colored by the number of cases of Sudden Infant Death Syndrome. When you hover over a county the border turns blue and becomes thicker, and the fill is not transparent and the county is brought forward. The map also includes labels reporting the number of Sudden Infant Death cases and the name of the county."}
 ```
 ]
 
@@ -857,7 +862,7 @@ m1
 ]
 
 .right-plot[
-```{r first-leaflet-map1l, ref.label='first-leaflet-map1l', echo=FALSE, out.width="100%"}
+```{r first-leaflet-map1l, ref.label='first-leaflet-map1l', echo=FALSE, out.width="100%", fig.alt="Leaflet map of Southeastern USA with ESRI ocean base map with white polygons showing outline of counties in North Carolina. Counties are colored by the number of cases of Sudden Infant Death Syndrome. When you hover over a county the border turns blue and becomes thicker, and the fill is not transparent and the county is brought forward. The map also includes labels reporting the number of Sudden Infant Death cases and the name of the county. There is a legend in the bottom right which shows the Red Orange palette. Dark red = 30,000-35,000; Light orange = 0-5,000"}
 ```
 ]
 
@@ -880,7 +885,7 @@ labels79 <- sprintf(
 
 ```
 
-* **Your Turn** Using `names(nc)`, change `nc$births1974` to the column which corresponds to number of births in 1979.
+* **Your Turn** Using `names(nc)` to check the column names, change `nc$births1974` to the column which corresponds to number of births in 1979.
 
 ```{r labels for second map, echo=FALSE}
 
@@ -920,7 +925,7 @@ m2 <- leaflet(data = nc) %>%
 ---
 
 
-```{r leaflet-map2a, eval=TRUE}
+```{r leaflet-map2a, eval=TRUE, fig.alt="Leaflet map of Southeastern USA with terrain base map with white polygons showing outline of counties in North Carolina. Counties are colored by the number of cases of Sudden Infant Death Syndrome from 1979-1984. When you hover over a county the border turns blue and becomes thicker, and the fill is not transparent and the county is brought forward. The map also includes labels reporting the number of Sudden Infant Death cases and the name of the county. There is a legend in the bottom right which shows the Red Orange palette. Dark red = 30,000-35,000; Light orange = 0-5,000"}
 m2 <- m2 %>%
   addLegend(
     position = "bottomright",
@@ -933,7 +938,8 @@ m2 <- m2 %>%
 
 ---
 
-```{r}
+```{r, fig.alt="Leaflet map of Southeastern USA with terrain base map with white polygons showing outline of counties in North Carolina. Counties are colored by the number of cases of Sudden Infant Death Syndrome from 1979-1984. When you hover over a county the border turns blue and becomes thicker, and the fill is not transparent and the county is brought forward. The map also includes labels reporting the number of Sudden Infant Death cases and the name of the county. There is a legend in the bottom right which shows the Red Orange palette. Dark red = 30,000-35,000; Light orange = 0-5,000"}
+
 m2
 ```
 
@@ -943,7 +949,7 @@ layout: true
 # Placing two maps side by side
 ---
 
-```{r leaflet-map3}
+```{r leaflet-map3, fig.alt="Side by side Leaflet maps of Southeastern USA with terrain base map with white polygons showing outline of counties in North Carolina. Counties are colored by the number of cases of Sudden Infant Death Syndrome from 1974-1978 (left-side) and 1979-1984 (right-side). When you hover over a county the border turns blue and becomes thicker, and the fill is not transparent and the county is brought forward. The map also includes labels reporting the number of Sudden Infant Death cases and the name of the county. There is a legend in the bottom right which shows the Red Orange palette. Dark red = 30,000-35,000; Light orange = 0-5,000"}
 
 leafsync::sync(m1, m2, ncol = 2, sync = "all")
 ```
@@ -1026,6 +1032,7 @@ layout: true
 
 .left-code[
 ```{r leaflet-map-work, eval=FALSE}
+
 leaflet(work) %>% 
       addProviderTiles(providers$Stamen.Watercolor) %>%
       addProviderTiles(providers$Stamen.TerrainLabels) %>%
@@ -1038,7 +1045,7 @@ leaflet(work) %>%
 
 .right-plot[
 
-```{r leaflet-map-work, ref.label='leaflet-map-work', out.width="100%", echo=FALSE}
+```{r leaflet-map-work, ref.label='leaflet-map-work', out.width="100%", echo=FALSE, fig.alt="Water colour leaflet map of the world with blue dots representing the locations of different work projects in North America, South America, Europe and Africa."}
 ```
 
 ]
@@ -1061,7 +1068,7 @@ leaflet(work) %>%
 
 .right-plot[
 
-```{r work-leaflet-map2, ref.label='work-leaflet-map2', echo=FALSE, out.width="100%"}
+```{r work-leaflet-map2, ref.label='work-leaflet-map2', echo=FALSE, out.width="100%", fig.alt="Water colour leaflet map of the world with clusters with the numbers 1-3 representing the locations of different work projects in North America, South America, Europe and Africa."}
 ```
 
 ]
@@ -1085,16 +1092,17 @@ labels <- sprintf(
 .left-code[
 
 ```{r work-map-labels, eval=FALSE}
-(work_map <- leaflet(work) %>% 
-                addProviderTiles(providers$Stamen.Watercolor) %>%
-                addProviderTiles(providers$Stamen.TerrainLabels) %>%
-                addCircleMarkers(~lon, ~lat, popup = ~labels))
+leaflet(work) %>% 
+    addProviderTiles(providers$Stamen.Watercolor) %>%
+    addProviderTiles(providers$Stamen.TerrainLabels) %>%
+    addCircleMarkers(~lon, ~lat, 
+                     popup = ~labels)
 ```
 ]
 
 .right-plot[
 
-```{r work-map-labels, ref.label='work-map-labels', echo=FALSE, out.width="100%"}
+```{r work-map-labels, ref.label='work-map-labels', echo=FALSE, out.width="100%", fig.alt="Water colour leaflet map of the world with blue dots representing the locations of different work projects in North America, South America, Europe and Africa. Labels with the name of the institute and country appear when you click on the dot"}
 ```
 
 ] 
@@ -1117,7 +1125,7 @@ layout: true
 # Asante Sana!
 
 
-Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+Slides created via the R package [xaringan](https://github.com/yihui/xaringan).
 
 The chakra comes from [remark.js](https://remarkjs.com), [knitr](http://yihui.org/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
 

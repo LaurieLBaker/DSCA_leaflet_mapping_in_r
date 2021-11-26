@@ -11,36 +11,37 @@ first-map1e
 kenya-true-size	
 checking the CRS	
 changing the CRS using st_transform	nc
-first-leaflet-map1a	.leaflet_slides2_cache/html/first-leaflet-map1a_5968547f9a3b9b45188104dab63c7295_meta
-first-leaflet-map1b	.leaflet_slides2_cache/html/first-leaflet-map1b_121fef51fd50f6dcdd6f2d9fbcceee50_meta
-first-leaflet-map1c	.leaflet_slides2_cache/html/first-leaflet-map1c_8cc67f756a3812d44307c2aa76315b9b_meta
-first-leaflet-map-kenya	.leaflet_slides2_cache/html/first-leaflet-map-kenya_93273d29fd14044c377ae56215a1df6f_meta
-first-leaflet-map1d-provider	.leaflet_slides2_cache/html/first-leaflet-map1d-provider_3c844e2994fa88e4fb070a12d432220b_meta
-first-leaflet-map1e	.leaflet_slides2_cache/html/first-leaflet-map1e_85c7c0a3a1b9c5ae4abb8bedb0b007ca_meta
+first-leaflet-map1a	.leaflet_slides2_cache/html/first-leaflet-map1a_9bed7b233df8136c33dabe2fa205ae94_meta
+first-leaflet-map1b	.leaflet_slides2_cache/html/first-leaflet-map1b_4e043758f6ef5ec8bc3dad552a722945_meta
+first-leaflet-map1c	.leaflet_slides2_cache/html/first-leaflet-map1c_c606da1731946fbed75f4b947b2dbda7_meta
+first-leaflet-map-kenya	.leaflet_slides2_cache/html/first-leaflet-map-kenya_dd64a530af363fa3c2497e4028fc855b_meta
+first-leaflet-map1d-provider	.leaflet_slides2_cache/html/first-leaflet-map1d-provider_27a832999c8e3cc1dcaf9131c163da62_meta
+first-leaflet-map1e	.leaflet_slides2_cache/html/first-leaflet-map1e_e10ab11f489479ffbc09dfa913ab2631_meta
 Color-brewer	
 pal-sequential	
 pal-diverging	
 Defining colour bins	bins
 Defining the palette	pal74	pal79
-first-leaflet-map1f	.leaflet_slides2_cache/html/first-leaflet-map1f_9ebf80b75b13f77eb1d2b382d69ea679_meta
-first-leaflet-map1g	.leaflet_slides2_cache/html/first-leaflet-map1g_b70a7fa2b316c3ef3b2041a6cbe3d949_meta
+first-leaflet-map1f	.leaflet_slides2_cache/html/first-leaflet-map1f_1416de00d60474da3448c7fb83627656_meta
+first-leaflet-map1g	.leaflet_slides2_cache/html/first-leaflet-map1g_4229f81a3fba236e3d11b601d92fd5d6_meta
 what can you customise with addPolygons	
-first-leaflet-map1h	m1	.leaflet_slides2_cache/html/first-leaflet-map1h_9d47ddfefd6f4da8e41eaf2998318c35_meta
-first-leaflet-map1j	.leaflet_slides2_cache/html/first-leaflet-map1j_356424ae4037c39cdf40caf07f308bc1_meta
+first-leaflet-map1h	m1	.leaflet_slides2_cache/html/first-leaflet-map1h_a6a1a42eca2895be27751bf21150ace4_meta
+first-leaflet-map1j	.leaflet_slides2_cache/html/first-leaflet-map1j_2cde40e3b948f8f0eba42e70cd06cda1_meta
 Make our labels	labels
-first-leaflet-map1k	m1	.leaflet_slides2_cache/html/first-leaflet-map1k_68df6c0a717437d3e8ea6e30d7269eea_meta
-first-leaflet-map1l	m1	.leaflet_slides2_cache/html/first-leaflet-map1l_c412d5542c46032923a271ea5957c888_meta
+first-leaflet-map1k	m1	.leaflet_slides2_cache/html/first-leaflet-map1k_29f30a68a38004960b6a9bdbda1388e2_meta
+first-leaflet-map1l	m1	.leaflet_slides2_cache/html/first-leaflet-map1l_7c5d6fbea51621c7891d5c863893ecea_meta
 labels for second map blank	
 labels for second map	labels79
 unnamed-chunk-2	m2
 leaflet-map2a	m2
-unnamed-chunk-3	.leaflet_slides2_cache/html/unnamed-chunk-3_d08ce3844c5fecf9f41b9068e1586f5b_meta
-leaflet-map3	.leaflet_slides2_cache/html/leaflet-map3_207d6379f12ff0fe81dd3c3a7fff1f4c_meta
+unnamed-chunk-3	.leaflet_slides2_cache/html/unnamed-chunk-3_5cd174d7acf85f360dbbefcacf2e7b00_meta
+leaflet-map3	.leaflet_slides2_cache/html/leaflet-map3_e67203f51c9ca618e3d6fbae0f302091_meta
 leaflet-map-points	work
 data-preview	
 work-leaflet-map	.leaflet_slides2_cache/html/work-leaflet-map_19826f40448669dca73540fe0cdcf075_meta
-work-leaflet-map2	.leaflet_slides2_cache/html/work-leaflet-map2_02be2e7b874ef6040cfab7a94f7cf06c_meta
+work-leaflet-map2	.leaflet_slides2_cache/html/work-leaflet-map2_7baa1ce57da51bff8d636d49b1a73c95_meta
 point-labels	labels
-work-map-labels	work_map	.leaflet_slides2_cache/html/work-map-labels_c50ae6dcdeb39d2c6d8c00a45e87bbbd_meta
+work-map-labels	.leaflet_slides2_cache/html/work-map-labels_aec94628358be7db0988a9f6f4e71972_meta
 setup	as_table
-leaflet-map-work	.leaflet_slides2_cache/html/leaflet-map-work_bf60b6763f1af72d8c4186e6693d0dd4_meta
+leaflet-map-work	.leaflet_slides2_cache/html/leaflet-map-work_57ad96a40d14748b2bd0a8549ff67fbe_meta
+spatial-data-types	
