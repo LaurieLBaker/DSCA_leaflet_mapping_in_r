@@ -39,3 +39,10 @@ work-leaflet	$	%>%	~	addCircleMarkers	addProviderTiles	leaflet	providers	work
 work-leaflet1	$	%>%	~	addCircleMarkers	addProviderTiles	leaflet	markerClusterOptions	providers	work
 point-labels	$	%>%	::	lapply	sprintf	work
 unnamed-chunk-5	$	%>%	~	addCircleMarkers	addProviderTiles	leaflet	providers	work
+first-leaflet-map1_kenya	%>%	addTiles	leaflet	nc	setView
+first-leaflet-map_kenya	
+kenya-true-size	::
+labels for second map blank	$	%>%	::	lapply	nc	sprintf
+first-leaflet-map-kenya	%>%	addTiles	leaflet	nc	setView
+work-map-labels	$	%>%	~	addCircleMarkers	addProviderTiles	leaflet	providers	work
+setup	$	$<-	::	if	library	options

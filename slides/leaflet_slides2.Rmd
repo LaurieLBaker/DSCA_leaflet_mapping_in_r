@@ -1,6 +1,6 @@
 ---
-title: "Data Visualisation in R"
-subtitle: "Introduction to leaflet"
+title: "Introduction to leaflet mapping"
+subtitle: "Data Visualisation in R: Maps!"
 author: "Dr. Laurie Baker"
 institute: "Bates College adapted from Data Science Campus"
 date: "2020/04/09 (updated: `r Sys.Date()`)"
@@ -25,6 +25,9 @@ class: inverse center middle text-white
 .font200[Introduction to leaflet]
 
 ```{r setup, include=FALSE}
+library(fontawesome)
+library(icons)
+
 knitr::opts_chunk$set(fig.width=5, fig.height=6, fig.retina=3,
                       out.width = "100%",
                       message=FALSE, warning=FALSE, cache = TRUE, 
@@ -40,6 +43,8 @@ knitr::opts_hooks$set(fig.callout = function(options) {
   options
 })
 
+options(htmltools.dir.version = FALSE, htmltools.preserve.raw = FALSE)
+
 options(
   htmltools.dir.version = FALSE, 
   width = 90,
@@ -51,11 +56,42 @@ as_table <- function(...) knitr::kable(..., format='html', digits = 3)
 ```
 
 ---
+# About me
+
+.pull-left[
+
+.center[
+<img style="border-radius: 50%;" src="images/laurie_baker.jpg" width="300px"/>
+
+.font150[**Dr. Laurie Baker**]
+
+Visiting Assistant Professor of Digital and Computational Studies, Bates College
+]]
+.pull-right[
+
+### Education
+
+`r icons::fontawesome("graduation-cap")` BSc and MSc, Marine Biology
+`r icons::fontawesome("graduation-cap")` PhD, Epidemiology
+`r icons::fontawesome("certificate")` Certified Tidyverse Instructor, RStudio
+
+### Research Interests
+
+`r icons::fontawesome("syringe")`  Public Health, `r icons::fontawesome("fish")`  Ecology, `r icons::fontawesome("desktop")` Data Science
+]
+
+.center[
+[`r icons::fontawesome("link")` lauriebaker.rbind.io](https://lauriebaker.rbind.io)
+[`r icons::fontawesome("twitter")` @llbaker1707](https://twitter.com/llbaker1707)
+[`r icons::icon_style(icons::fontawesome("github"), scale = 1)` @laurielbaker](https://github.com/laurielbaker)
+]
+
+---
 layout: true
 # What we'll cover today.
 ---
 
-- Intro to the `sf` packages
+- Intro to the `sf` package
 
 --
 
@@ -87,7 +123,7 @@ library(htmltools) ## For html
 
 library(leafsync) ## For placing plots side by side
 
-library(kableExtra) ## Table output
+library(kableExtra) ## Table  output (in slides)
 
 ```
 
@@ -158,7 +194,7 @@ nc <- nc_df %>%
 
 ---
 layout: true
-# Let's View() the data
+# Let's inspect the data
 
 * Let's load in the data for North Carolina (nc)
 
@@ -328,7 +364,22 @@ layout: true
 
 ---
 layout: true
-# Coordinate reference system
+# Coordinate reference system can skew true size
+---
+
+```{r kenya-true-size, fig.alt = "Map of the world showing Kenya overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is", echo=FALSE, fig.cap = "The True Size of (thetruesize.com)"}
+
+knitr::include_graphics(path = "images/Kenya_true_size.png")
+
+```
+
+[The True Size Of at thetruesize.com](https://thetruesize.com/#?borders=1~!MTczMDY3NDE.MTE4OTczMjc*MjU3NDY1NzA(MzkyMTU3MA~!KE*OTYxNTIxNw.MTY3MDYyNzg)NA)
+
+
+
+---
+layout: true
+# Checking the coordinate reference system
 ---
 
 
@@ -355,7 +406,7 @@ layout: true
 
 --
 
-* Well, a good place to start is with the one that leaflet uses for plotting the world:  EPSG 4326.
+* If we are making a plot using leaflet we can use:  EPSG 4326.
 
 ```{r changing the CRS using st_transform}
 
@@ -364,6 +415,15 @@ nc <- st_transform(nc, "+init=epsg:4326")
 st_crs(nc)
 
 ```
+
+---
+layout: true
+# Introduction to leaflet mapping
+---
+
+* Leaflet is one of the most popular open-source JavaScript libraries for interactive maps
+
+* Like `ggplot2` it is built in layers on top of a base map
 
 
 ---
@@ -423,6 +483,9 @@ leaflet(data = nc) %>%
           lat = 34.5, #<<
           zoom = 5) #<<
 ```
+
+* **Your Turn**: Try setting lng to 38 and lat to 1. Try setting different values between 0 and 10 for the zoom.
+
 ]
 
 .right-plot[
@@ -434,7 +497,28 @@ leaflet(data = nc) %>%
 
 .left-code[
 
-* Add different background map using addProviderTiles
+* We can set the view using `setView()`
+
+```{r first-leaflet-map-kenya, eval=FALSE}
+leaflet(data = nc) %>%
+  addTiles() %>%
+  setView(lng = 38, #<<
+          lat = 1, #<<
+          zoom = 6) #<<
+```
+
+
+]
+
+.right-plot[
+```{r first-leaflet-map-kenya, ref.label='first-leaflet-map-kenya', echo=FALSE, out.width="100%"}
+```
+]
+
+---
+
+.left-code[
+* `addProviderTiles` give different base maps
 
 ```{r first-leaflet-map1d, eval=FALSE}
 leaflet(data = nc) %>%
@@ -443,20 +527,19 @@ leaflet(data = nc) %>%
           lat = 34.5, 
           zoom = 5)
 ```
+
+* **Your Turn**: Choose a different provider tile: `providers$` + `Tab`. 
 ]
 
 .right-plot[
 ```{r first-leaflet-map1d, ref.label='first-leaflet-map1d', echo=FALSE, out.width="100%"}
 ```
-
-N.B. The different provider tiles come with different licensing.
+N.B. The different provider tiles come with different licensing and some require an API.
 ]
-
 
 ---
 
 .left-code[
-
 * Add polygons using `addPolygons()`
 
 ```{r first-leaflet-map1e, eval=FALSE}
@@ -487,18 +570,15 @@ knitr::include_graphics("images/ColorBrewer_Ex.PNG")
 ```
 
 
-* What type of data are we showing? 
+* What type of variables are we showing (numerical, categorical)? 
 
 --
 
-* Who is our audience? 
+* What story are we telling with our data? 
 
 --
 
-* Tools
-
-  * [ColorBrewer2.org](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
-  * https://www.colorcodepicker.com/ 
+* Choose your colours: [ColorBrewer2.org](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) and https://www.colorcodepicker.com/ 
 
 
 
@@ -575,11 +655,11 @@ pal79 <- colorBin("OrRd", domain = nc$births1979, bins = bins)
 
 .left-code[
 
-* Customising `addPolygons()`
+* Customizing `addPolygons()`
 
 ```{r first-leaflet-map1f, eval=FALSE}
 leaflet(data = nc) %>%
-  addProviderTiles(providers$Stamen.Terrain) %>%
+  addProviderTiles(providers$Esri.OceanBasemap) %>%
   setView(lng = -80, 
           lat = 34.5, 
           zoom = 6) %>%
@@ -606,7 +686,7 @@ leaflet(data = nc) %>%
 
 ```{r first-leaflet-map1g, eval=FALSE}
 leaflet(data = nc) %>%
-  addProviderTiles(providers$Stamen.Terrain) %>%
+  addProviderTiles(providers$Esri.OceanBasemap) %>%
   setView(lng = -80, 
           lat = 34.5, 
           zoom = 6) %>%
@@ -618,11 +698,14 @@ leaflet(data = nc) %>%
     weight = 1 #<<
   ) 
 ```
+
 ]
 
 .right-plot[
-```{r first-leaflet-map1g, ref.label='first-leaflet-map1g', echo=FALSE, out.width="100%"}
+```{r first-leaflet-map1g, ref.label='first-leaflet-map1g', echo=FALSE, out.width="95%"}
 ```
+
+* **Your Turn** Try changing the `color`, `opacity`, and `weight`
 ]
 
 ---
@@ -791,7 +874,19 @@ layout: true
 
 * First we'll need to create a new set of labels
 
-```{r labels for second map}
+```{r labels for second map blank, eval=FALSE}
+
+labels79 <- sprintf(
+  "<strong>%s</strong><br/>%g births",
+  nc$county, nc$births1974
+) %>% lapply(htmltools::HTML)
+
+
+```
+
+* **Your Turn** Using `names(nc)`, change `nc$births1974` to the column which corresponds to number of births in 1979.
+
+```{r labels for second map, echo=FALSE}
 
 labels79 <- sprintf(
   "<strong>%s</strong><br/>%g births",
@@ -936,7 +1031,7 @@ layout: true
 ---
 
 .left-code[
- 
+
 
 ```{r work-leaflet, eval=FALSE}
 leaflet(work) %>% 
@@ -992,7 +1087,7 @@ labels <- sprintf(
 
 ---
 
-```{r}
+```{r work-map-labels}
 (work_map <- leaflet(work) %>% 
                 addProviderTiles(providers$Stamen.Watercolor) %>%
                 addProviderTiles(providers$Stamen.TerrainLabels) %>%
@@ -1009,21 +1104,26 @@ layout: true
 * [Geocomputation with R (Book)](https://geocompr.robinlovelace.net/preface.html)
 * [Afrimapr: Intro to Spatial Data in R (Tutorial)](https://andysouth.shinyapps.io/intro-to-spatial-r/)
 * [Afrimapr: Getting Data into R (Tutorial) ](https://andysouth.shinyapps.io/get-my-data-in/)
+* [Afrimapr: Joining Spreadsheet Data (Tutorial) ](https://andysouth.shinyapps.io/get-my-data-in/)
 
 
 ---
 class: inverse, center, middle
 layout: true
 
-# Thanks!
+# Asante Sana!
 
 
 Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
 
-The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.org/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+The chakra comes from [remark.js](https://remarkjs.com), [knitr](http://yihui.org/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
 
 .font150.text-white[
-- Slides template adapted from Garrick Aden-Buie GitHub: <http://github.com/gadenbuie/gentle-ggplot2>
+Special thanks to Rich Leyshon at the Data Science Campus
+]
+
+.font150.text-white[
+Slides template adapted from Garrick Aden-Buie GitHub: <http://github.com/gadenbuie/gentle-ggplot2>
 ]
 
 ---

@@ -1,4 +1,4 @@
-unnamed-chunk-1	.Random.seed
+unnamed-chunk-1	
 nc-data	nc_df
 nc-data2	nc
 nc-view	
@@ -20,8 +20,8 @@ pal-sequential
 pal-diverging	
 Defining colour bins	bins
 Defining the palette	pal74	pal79
-first-leaflet-map1f	.leaflet_slides2_cache/html/first-leaflet-map1f_3cedb61c72652e5fe6bfc1856ce15b2f_meta
-first-leaflet-map1g	.leaflet_slides2_cache/html/first-leaflet-map1g_71bfc6f63a0677b61493129876a0321b_meta
+first-leaflet-map1f	.leaflet_slides2_cache/html/first-leaflet-map1f_9ebf80b75b13f77eb1d2b382d69ea679_meta
+first-leaflet-map1g	.leaflet_slides2_cache/html/first-leaflet-map1g_3fd933e591fe1bef98823eb8149663ff_meta
 what can you customise with addPolygons	
 first-leaflet-map1h	m1	.leaflet_slides2_cache/html/first-leaflet-map1h_9d47ddfefd6f4da8e41eaf2998318c35_meta
 first-leaflet-map1j	.leaflet_slides2_cache/html/first-leaflet-map1j_356424ae4037c39cdf40caf07f308bc1_meta
@@ -39,3 +39,10 @@ work-leaflet	.leaflet_slides2_cache/html/work-leaflet_9d1825832f23e203b978aeb9d2
 work-leaflet1	.leaflet_slides2_cache/html/work-leaflet1_0a7ba84914c88e82cb21e87e9967b49d_meta
 point-labels	labels
 unnamed-chunk-5	work_map	.leaflet_slides2_cache/html/unnamed-chunk-5_f418a8ac99a6e95b5ad273545777a802_meta
+first-leaflet-map1_kenya	
+first-leaflet-map_kenya	
+kenya-true-size	
+labels for second map blank	
+first-leaflet-map-kenya	.leaflet_slides2_cache/html/first-leaflet-map-kenya_93273d29fd14044c377ae56215a1df6f_meta
+work-map-labels	work_map	.leaflet_slides2_cache/html/work-map-labels_ebf89bb6538b09c7a75a403c5a02f717_meta
+setup	as_table
