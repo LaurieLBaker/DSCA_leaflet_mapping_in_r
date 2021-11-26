@@ -51,7 +51,8 @@ Intermediate
 Students should have completed the course Introduction to R. The students will need a recent version of R and RStudio and the packages tidyverse, gapminder, and leaflet. 
 
 **Order of material list**
-1. Access the [slides](slides/leaflet_slides2.html) using this link
+1. Access the [slides using this link](slides/leaflet_slides2.html)
+2. Download the [tutorial using this link](tutorial/leaflet_tutorial.Rmd)
 
 **Acknowledgements**
 
