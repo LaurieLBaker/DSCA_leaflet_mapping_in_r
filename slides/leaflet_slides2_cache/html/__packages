@@ -1,4 +1,9 @@
 base
+fontawesome
+icons
+gapminder
+DT
+kableExtra
 tidyverse
 ggplot2
 tibble
@@ -13,9 +18,3 @@ sf
 RColorBrewer
 htmltools
 leafsync
-kableExtra
-sp
-gapminder
-DT
-fontawesome
-icons

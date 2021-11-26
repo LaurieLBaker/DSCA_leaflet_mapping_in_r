@@ -25,8 +25,12 @@ class: inverse center middle text-white
 .font200[Introduction to leaflet]
 
 ```{r setup, include=FALSE}
+#remotes::install_github("mitchelloharawild/icons")
 library(fontawesome)
 library(icons)
+library(gapminder)
+library(DT)
+library(kableExtra)
 
 knitr::opts_chunk$set(fig.width=5, fig.height=6, fig.retina=3,
                       out.width = "100%",
@@ -516,11 +520,14 @@ leaflet(data = nc) %>%
 ]
 
 ---
+layout: true
+# Our first leaflet map
+---
 
 .left-code[
 * `addProviderTiles` give different base maps
 
-```{r first-leaflet-map1d, eval=FALSE}
+```{r first-leaflet-map1d-provider, eval=FALSE}
 leaflet(data = nc) %>%
   addProviderTiles(providers$Stamen.Terrain) %>%
   setView(lng = -80, 
@@ -532,8 +539,10 @@ leaflet(data = nc) %>%
 ]
 
 .right-plot[
-```{r first-leaflet-map1d, ref.label='first-leaflet-map1d', echo=FALSE, out.width="100%"}
+
+```{r first-leaflet-map1d-provider, ref.label='first-leaflet-map1d-provider', echo=FALSE, out.width="100%"}
 ```
+
 N.B. The different provider tiles come with different licensing and some require an API.
 ]
 
@@ -564,7 +573,7 @@ layout: true
 ---
 
 
-```{r, echo = FALSE, out.width=550, fig.align='center', fig.cap="Map of U.S. Counties showing green blue colour scheme"}
+```{r Color-brewer, echo = FALSE, out.width=550, fig.align='center', fig.cap="Map of U.S. Counties showing green blue colour scheme"}
 
 knitr::include_graphics("images/ColorBrewer_Ex.PNG")
 ```
@@ -592,17 +601,10 @@ layout: true
 
 * `RColorBrewer` includes **sequential** colour palettes (e.g. number of people).
 
-.left-code[
-```{r pal-sequential, eval = FALSE}
+```{r pal-sequential, eval=TRUE}
 display.brewer.all(type = "seq")
 ```
-]
 
-.right-plot[
-```{r pal-sequential, ref.label='pal-sequential', echo=FALSE, out.width="80%"}
-```
-
-]
 ---
 layout: true
 # Creating a colour palette
@@ -610,17 +612,11 @@ layout: true
 
 * `RColorBrewer` includes **diverging** colour palettes (e.g. to show distinct categories).
 
-.left-code[
-```{r pal-diverging, eval = FALSE}
+
+```{r pal-diverging, eval=TRUE}
 display.brewer.all(type = "div")
 ```
-]
 
-.right-plot[
-```{r pal-diverging, ref.label='pal-diverging', echo=FALSE, out.width="80%"}
-```
-
-]
 
 
 ---
@@ -702,7 +698,7 @@ leaflet(data = nc) %>%
 ]
 
 .right-plot[
-```{r first-leaflet-map1g, ref.label='first-leaflet-map1g', echo=FALSE, out.width="95%"}
+```{r first-leaflet-map1g, ref.label='first-leaflet-map1g', echo=FALSE, out.width="100%"}
 ```
 
 * **Your Turn** Try changing the `color`, `opacity`, and `weight`
@@ -924,7 +920,7 @@ m2 <- leaflet(data = nc) %>%
 ---
 
 
-```{r leaflet-map2a, eval=FALSE}
+```{r leaflet-map2a, eval=TRUE}
 m2 <- m2 %>%
   addLegend(
     position = "bottomright",
@@ -1019,9 +1015,7 @@ work <- data.frame(
 
 ```{r data-preview} 
 
-work %>%
-  kbl() %>%
-  kable_paper("hover")
+head(work)
 
 ```
 
@@ -1031,42 +1025,43 @@ layout: true
 ---
 
 .left-code[
-
-
-```{r work-leaflet, eval=FALSE}
+```{r leaflet-map-work, eval=FALSE}
 leaflet(work) %>% 
       addProviderTiles(providers$Stamen.Watercolor) %>%
       addProviderTiles(providers$Stamen.TerrainLabels) %>%
       addCircleMarkers(~lon, ~lat)
 ```
 
-* **Your Turn*** What else can you change about addCircleMarkers? Hint: Type `??addControl` Try adding: `clusterOptions = markerClusterOptions()` to your map. 
+* **Your Turn** What else can you change about addCircleMarkers? Hint: Type `??addControl` Try adding: `clusterOptions = markerClusterOptions()` to your map. 
+
 ]
 
 .right-plot[
 
-```{r work-leaflet, ref.label='work-leaflet', echo=FALSE, out.width="100%"}
+```{r leaflet-map-work, ref.label='leaflet-map-work', out.width="100%", echo=FALSE}
 ```
 
-] 
+]
+
+
 ---
 
 .left-code[
 
 
-```{r work-leaflet1, eval=FALSE}
+```{r work-leaflet-map2, eval=FALSE}
 leaflet(work) %>% 
       addProviderTiles(providers$Stamen.Watercolor) %>%
       addProviderTiles(providers$Stamen.TerrainLabels) %>%
       addCircleMarkers(~lon, ~lat, clusterOptions = markerClusterOptions())
 ```
 
-* **Your Turn*** What else can you change about addCircleMarkers? Hint: Type `??addControl` Try adding: `clusterOptions = markerClusterOptions()` to your map. 
+* **Your Turn** What else can you change about addCircleMarkers? Hint: Type `??addControl` Try adding: `clusterOptions = markerClusterOptions()` to your map. 
 ]
 
 .right-plot[
 
-```{r work-leaflet1, ref.label='work-leaflet1', echo=FALSE, out.width="100%"}
+```{r work-leaflet-map2, ref.label='work-leaflet-map2', echo=FALSE, out.width="100%"}
 ```
 
 ]
@@ -1087,14 +1082,22 @@ labels <- sprintf(
 
 ---
 
-```{r work-map-labels}
+.left-code[
+
+```{r work-map-labels, eval=FALSE}
 (work_map <- leaflet(work) %>% 
                 addProviderTiles(providers$Stamen.Watercolor) %>%
                 addProviderTiles(providers$Stamen.TerrainLabels) %>%
                 addCircleMarkers(~lon, ~lat, popup = ~labels))
 ```
+]
 
+.right-plot[
 
+```{r work-map-labels, ref.label='work-map-labels', echo=FALSE, out.width="100%"}
+```
+
+] 
 ---
 layout: true
 # Useful resources:
@@ -1119,7 +1122,7 @@ Slides created via the R package [**xaringan**](https://github.com/yihui/xaringa
 The chakra comes from [remark.js](https://remarkjs.com), [knitr](http://yihui.org/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
 
 .font150.text-white[
-Special thanks to Rich Leyshon at the Data Science Campus
+Special thanks to Rich Leyshon at the Data Science Campus and Kemunto Ongera at Bates College
 ]
 
 .font150.text-white[
