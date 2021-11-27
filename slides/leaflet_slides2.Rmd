@@ -160,7 +160,7 @@ knitr::include_graphics(path = "images/spatial_data_types.jpg")
 
 ---
 layout: true
-# Birth Rates in North Carolina
+# Births in North Carolina
 ---
 
 * We will use the North Carolina (`nc`) data from the `sf` package.
@@ -183,7 +183,7 @@ nc_df <- st_read(system.file("shape/nc.shp", package="sf"))
 
 ---
 layout: true
-# Rename the columns and view the data North Carolina
+# Rename the columns and view the data
 ---
 
 * Number of births for counties in North Carolina in 1974 
@@ -298,7 +298,7 @@ ggplot(nc) +
 ]
 
 .right-plot[
-```{r first-map1c, ref.label='first-map1c', echo=FALSE, out.width="95%", fig.alt="Map of North Carolina with administrative regions filled by number of Sudden Infant Death Syndrome (SIDS) cases for North Carolina counties from 1974-78."}
+```{r first-map1c, ref.label='first-map1c', echo=FALSE, out.width="95%", fig.alt="Map of North Carolina with administrative regions filled by number of births in North Carolina counties from 1974-78."}
 ```
 ]
 
@@ -309,10 +309,10 @@ ggplot(nc) +
 ```{r first-map1d, eval=FALSE}
 ggplot(nc) +
   geom_sf(aes(fill = births1974)) +
-  labs(title = "SIDS cases per county in 1974-1978", #<<
+  labs(title = "Births per county in 1974-1978", #<<
        x = "Longitude", #<<
        y = "Latitude", #<<
-       fill = "# SIDS cases") #<<
+       fill = "# Births") #<<
 ```
 
 * Data
@@ -324,7 +324,7 @@ ggplot(nc) +
 ]
 
 .right-plot[
-```{r first-map1d, ref.label='first-map1d', echo=FALSE, out.width="95%", fig.alt="Map updated to include a title, x and y axis labels, and a legend.  Map of North Carolina with administrative regions filled by number of Sudden Infant Death Syndrome (SIDS) cases for North Carolina counties from 1974-78. On the x axis, longitude, on the y axis latitude, and a legend indicating the number of suddent infant death cases."}
+```{r first-map1d, ref.label='first-map1d', echo=FALSE, out.width="95%", fig.alt="Map updated to include a title, x and y axis labels, and a legend.  Map of North Carolina with administrative regions filled by number of births in North Carolina counties from 1974-78. On the x axis, longitude, on the y axis latitude, and a legend indicating the number of suddent infant death cases."}
 ```
 ]
 
@@ -335,10 +335,10 @@ ggplot(nc) +
 ```{r first-map1e, eval=FALSE}
 ggplot(nc) +
   geom_sf(aes(fill = births1974)) +
-  labs(title = "SIDS cases per county in 1974-1978",
+  labs(title = "Births per county in 1974-1978",
        x = "Longitude",
        y = "Latitude", 
-       fill = "# SIDS cases") +
+       fill = "# births") +
   scale_y_continuous(breaks = 34:36) #<<
 ```
 
@@ -350,7 +350,7 @@ ggplot(nc) +
 ]
 
 .right-plot[
-```{r first-map1e, ref.label='first-map1e', echo=FALSE, out.width="95%", fig.alt="Map updated so that the y axis has breaks at 34, 35, and 36 degrees latitude. Map of North Carolina with administrative regions filled by number of Sudden Infant Death Syndrome (SIDS) cases for North Carolina counties from 1974-78. On the x axis, longitude, on the y axis latitude, and a legend indicating the number of suddent infant death cases."}
+```{r first-map1e, ref.label='first-map1e', echo=FALSE, out.width="95%", fig.alt="Map updated so that the y axis has breaks at 34, 35, and 36 degrees latitude. Map of North Carolina with administrative regions filled by number of births in North Carolina counties from 1974-78. On the x axis, longitude, on the y axis latitude, and a legend indicating the number of suddent infant death cases."}
 ```
 ]
 
