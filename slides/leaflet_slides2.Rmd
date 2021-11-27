@@ -378,7 +378,7 @@ layout: true
 
 ```{r kenya-true-size, fig.alt = "Map of the world showing Kenya overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is", echo=FALSE, out.width = "70%"}
 
-knitr::include_graphics(path = "images/Kenya_true_size.png")
+knitr::include_graphics(path = "images/Kenya_true_size.PNG")
 
 ```
 
