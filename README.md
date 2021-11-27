@@ -56,4 +56,4 @@ Students should have completed the course Introduction to R. The students will n
 
 **Acknowledgements**
 
-The slide formatting comes from gadenbuie's [gentle introduction to ggplot2[(https://pkg.garrickadenbuie.com/gentle-ggplot2/#1).
+The slide formatting comes from gadenbuie's [gentle introduction to ggplot2](https://pkg.garrickadenbuie.com/gentle-ggplot2/#1).
