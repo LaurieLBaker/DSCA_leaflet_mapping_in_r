@@ -405,6 +405,8 @@ knitr::include_graphics(path = "images/OrangePeelProGoode.jpg")
 
 ```
 
+--
+
 * The Coordinate Reference system (CRS) determines how the data will be projected onto a map. 
 
 ---
@@ -676,7 +678,7 @@ layout: true
 # Creating a colour palette
 ---
 
-* Is our data categorical?
+* Is our data numeric?
 
 
 ```{r numeric-data, out.width = 800, fig.alt = "Yellow chick describing how tall it is (3.1 inches) and how much it weighs (34.16 grams) to illustrate continuous data, measured data that can have infinite values within a possible range. An octopus describing how many legs it has (8) and how many spots it has (4) to illustrate discrete observations that can only exist at limited values, often counts.", echo=FALSE}
@@ -1121,7 +1123,6 @@ leaflet(work) %>%
 layout: true
 # Recap
 
-Take home:
 
 * Leaflet maps are built in layers using `%>%`
 
@@ -1139,11 +1140,11 @@ layout: true
 # Choose your own adventure
 ---
 
-* Create a new variable using `mutate` which calculates how many births above or below the average counties are. Choose a palette that will be best to show this. 
-* Create a new map with the births from 1979
-* Change around the different visual elements of the plots. 
-* Create a new set of labels for the leaflet map with points.
-* Check out the short tutorial on joins. 
+* **Option 1** Create a new map with the births from 1979.
+* **Option 2** Change around the different visual elements of the plots. 
+* **Option 3** Create a new set of labels for the leaflet map with points.
+* **Option 4** Check out the short tutorial on joins. 
+* **Option 5** Create a new variable that calculates how many births above or below the average counties are. Choose a palette that will be best to show this. 
 
 ---
 layout: true
