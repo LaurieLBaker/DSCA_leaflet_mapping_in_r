@@ -234,7 +234,6 @@ layout: true
 
 head(nc)
 
-
 ```
 
 `r icons::icon_style(icons::fontawesome("info-circle", style = "solid"), scale = 1)` `head()` is a useful function that returns the first 6 rows of the data
@@ -449,8 +448,6 @@ st_crs(nc)
 
 ```
 
-* The CRS is specified in the attributes `epsg` and `proj4string`. 
-
 ---
 layout: true
 # Transforming coordinate reference system
@@ -464,7 +461,7 @@ layout: true
 
 --
 
-* If we are making a plot using leaflet we can use:  EPSG 4326.
+* EPSG 4326 aka WGS 1984 is a standard for use in cartography used by GPS technologies and is the default in leaflet.
 
 ```{r changing the CRS using st_transform}
 

@@ -453,6 +453,8 @@ layout: true
 
 &lt;img src="images/OrangePeelProGoode.jpg" title="Orange peel with earth drawn on it flattened in shape of Goode projection" alt="Orange peel with earth drawn on it flattened in shape of Goode projection" width="800" /&gt;
 
+--
+
 * The Coordinate Reference system (CRS) determines how the data will be projected onto a map. 
 
 ---
@@ -510,8 +512,6 @@ st_crs(nc)
 ##     ID["EPSG",4267]]
 ```
 
-* The CRS is specified in the attributes `epsg` and `proj4string`. 
-
 ---
 layout: true
 # Transforming coordinate reference system
@@ -525,7 +525,7 @@ layout: true
 
 --
 
-* If we are making a plot using leaflet we can use:  EPSG 4326.
+* EPSG 4326 aka WGS 1984 is a standard for use in cartography used by GPS technologies and is the default in leaflet.
 
 
 ```r
@@ -762,7 +762,7 @@ layout: true
 # Creating a colour palette
 ---
 
-* Is our data categorical?
+* Is our data numeric?
 
 
 &lt;img src="images/continuous_discrete.png" title="Yellow chick describing how tall it is (3.1 inches) and how much it weighs (34.16 grams) to illustrate continuous data, measured data that can have infinite values within a possible range. An octopus describing how many legs it has (8) and how many spots it has (4) to illustrate discrete observations that can only exist at limited values, often counts." alt="Yellow chick describing how tall it is (3.1 inches) and how much it weighs (34.16 grams) to illustrate continuous data, measured data that can have infinite values within a possible range. An octopus describing how many legs it has (8) and how many spots it has (4) to illustrate discrete observations that can only exist at limited values, often counts." width="800" /&gt;
