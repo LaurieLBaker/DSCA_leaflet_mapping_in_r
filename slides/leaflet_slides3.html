@@ -32,10 +32,10 @@
 class: center, middle, inverse, title-slide
 
 # Introduction to Spatial Data and Leaflet Mapping with R
-## College of the Atlantic Training
+## IFREMER/MARBEC, 2022
 ### Dr. Laurie Baker
-### Bates College adapted from Data Science Campus
-### 2020/04/09 (updated: 2022-02-24)
+### College of the Atlantic
+### 2020/04/09 (updated: 2022-06-13)
 
 ---
 
@@ -57,7 +57,7 @@ class: inverse center middle text-white
 
 .font150[**Dr. Laurie Baker**]
 
-Visiting Assistant Professor of Digital and Computational Studies, Bates College
+College of the Atlantic, Bar Harbor, ME
 ]]
 .pull-right[
 
@@ -473,7 +473,7 @@ layout: true
 # Coordinate reference systems skew true size
 ---
 
-&lt;img src="images/Kenya_true_size.PNG" title="Map of the world showing Kenya overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is" alt="Map of the world showing Kenya overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is" width="70%" /&gt;
+&lt;img src="images/France_true_size.PNG" title="Map of the world showing France overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is" alt="Map of the world showing France overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is" width="60%" /&gt;
 
 [The True Size Of: thetruesize.com](https://thetruesize.com/#?borders=1~!MTczMDY3NDE.MTE4OTczMjc*MjU3NDY1NzA(MzkyMTU3MA~!KE*OTYxNTIxNw.MTY3MDYyNzg)
 
@@ -651,7 +651,10 @@ leaflet(data = nc) %&gt;%
 *         zoom = 5)
 ```
 
-* **Your Turn**: Try setting lng to 38 and lat to 1. Try setting different values between 0 and 10 for the zoom.
+* **Your Turn**: Try setting lng to 3.17 and lat to 44.37. Try setting different values between 0 and 10 for the zoom.
+
+
+&lt;!-- * **Your Turn**: Try setting lng to 38 and lat to 1. Try setting different values between 0 and 10 for the zoom. --&gt;
 
 ]
 
@@ -670,17 +673,21 @@ leaflet(data = nc) %&gt;%
 ```r
 leaflet(data = nc) %&gt;%
   addTiles() %&gt;%
-* setView(lng = 38,
-*         lat = 1,
+* setView(lng = 3.17,
+*         lat = 44.37,
 *         zoom = 6)
 ```
+
+
 
 
 ]
 
 .right-plot[
+
+
 <div id="htmlwidget-d993553835bd48328e2c" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d993553835bd48328e2c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[1,38],6,[]]},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-d993553835bd48328e2c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[44.37,3.17],6,[]]},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---

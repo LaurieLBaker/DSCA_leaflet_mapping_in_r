@@ -50,3 +50,4 @@ numeric-data	::
 Defining colour bins2	$	nc	seq	summary
 Defining the palette2	$	bins	colorBin	nc
 categorical-data	::
+first-leaflet-map-france	%>%	addTiles	leaflet	nc	setView

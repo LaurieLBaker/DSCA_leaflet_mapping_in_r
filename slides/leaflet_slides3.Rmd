@@ -1,8 +1,8 @@
 ---
 title: "Introduction to Spatial Data and Leaflet Mapping with R"
-subtitle: "College of the Atlantic Training"
+subtitle: "IFREMER/MARBEC, 2022"
 author: "Dr. Laurie Baker"
-institute: "Bates College adapted from Data Science Campus"
+institute: "College of the Atlantic"
 date: "2020/04/09 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
@@ -69,7 +69,7 @@ as_table <- function(...) knitr::kable(..., format='html', digits = 3)
 
 .font150[**Dr. Laurie Baker**]
 
-Visiting Assistant Professor of Digital and Computational Studies, Bates College
+College of the Atlantic, Bar Harbor, ME
 ]]
 .pull-right[
 
@@ -424,9 +424,9 @@ layout: true
 # Coordinate reference systems skew true size
 ---
 
-```{r kenya-true-size, fig.alt = "Map of the world showing Kenya overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is", echo=FALSE, out.width = "70%"}
+```{r kenya-true-size, fig.alt = "Map of the world showing France overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is", echo=FALSE, out.width = "60%"}
 
-knitr::include_graphics(path = "images/Kenya_true_size.PNG")
+knitr::include_graphics(path = "images/France_true_size.PNG")
 
 ```
 
@@ -564,7 +564,10 @@ leaflet(data = nc) %>%
           zoom = 5) #<<
 ```
 
-* **Your Turn**: Try setting lng to 38 and lat to 1. Try setting different values between 0 and 10 for the zoom.
+* **Your Turn**: Try setting lng to 3.17 and lat to 44.37. Try setting different values between 0 and 10 for the zoom.
+
+
+<!-- * **Your Turn**: Try setting lng to 38 and lat to 1. Try setting different values between 0 and 10 for the zoom. -->
 
 ]
 
@@ -579,7 +582,15 @@ leaflet(data = nc) %>%
 
 * We can set the view using `setView()`
 
-```{r first-leaflet-map-kenya, eval=FALSE}
+```{r first-leaflet-map-france, eval=FALSE}
+leaflet(data = nc) %>%
+  addTiles() %>%
+  setView(lng = 3.17, #<<
+          lat = 44.37, #<<
+          zoom = 6) #<<
+```
+
+```{r first-leaflet-map-kenya, eval=FALSE, echo = FALSE}
 leaflet(data = nc) %>%
   addTiles() %>%
   setView(lng = 38, #<<
@@ -591,7 +602,10 @@ leaflet(data = nc) %>%
 ]
 
 .right-plot[
-```{r first-leaflet-map-kenya, ref.label='first-leaflet-map-kenya', echo=FALSE, out.width="100%", fig.alt="Leaflet map of Kenya with open street map background"}
+```{r first-leaflet-map-kenya, ref.label='first-leaflet-map-kenya', echo=FALSE, eval=FALSE, out.width="100%", fig.alt="Leaflet map of Kenya with open street map background"}
+```
+
+```{r first-leaflet-map-france, ref.label='first-leaflet-map-france', echo=FALSE, out.width="100%", fig.alt="Leaflet map of France with open street map background"}
 ```
 ]
 

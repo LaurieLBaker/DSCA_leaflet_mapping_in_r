@@ -15,7 +15,7 @@ changing the CRS using st_transform	nc
 first-leaflet-map1a	.leaflet_slides3_cache/html/first-leaflet-map1a_e32b0b81c0f1a87dc5059f658f1b346d_meta
 first-leaflet-map1b	.leaflet_slides3_cache/html/first-leaflet-map1b_eb126b3f59fbe99a0ecfb76fd0d11ff9_meta
 first-leaflet-map1c	.leaflet_slides3_cache/html/first-leaflet-map1c_166a8caaa6946c3a8d398f83bf755833_meta
-first-leaflet-map-kenya	.leaflet_slides3_cache/html/first-leaflet-map-kenya_df4096b789bc82167245ac9d7e41f9c6_meta
+first-leaflet-map-kenya	
 first-leaflet-map1d-provider	.leaflet_slides3_cache/html/first-leaflet-map1d-provider_997d0cb39379f4eba8c9401806a0bed8_meta
 first-leaflet-map1e	.leaflet_slides3_cache/html/first-leaflet-map1e_26acf02af8929627534e02cb6f376831_meta
 Color-brewer	
@@ -50,3 +50,4 @@ numeric-data
 Defining colour bins2	bins
 Defining the palette2	pal79
 categorical-data	
+first-leaflet-map-france	.leaflet_slides3_cache/html/first-leaflet-map-france_a102abe53eb4bfd8bd69ef70a68d3f17_meta
