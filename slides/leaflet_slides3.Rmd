@@ -424,7 +424,7 @@ layout: true
 # Coordinate reference systems skew true size
 ---
 
-```{r kenya-true-size, fig.alt = "Map of the world showing France overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is", echo=FALSE, out.width = "60%"}
+```{r kenya-true-size, fig.alt = "Map of the world showing France overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is", echo=FALSE, out.width = "50%"}
 
 knitr::include_graphics(path = "images/France_true_size.PNG")
 
@@ -979,9 +979,8 @@ m1
 ]
 ---
 layout: true
-# Leaflet maps with points
+# Leaflet map with points
 ---
-
 
 ```{r leaflet-map-points, echo = FALSE}
 
@@ -1195,7 +1194,7 @@ layout: true
 ---
 
 ---
-layout: false
+layout: true
 # Colorbins
 ---
 
