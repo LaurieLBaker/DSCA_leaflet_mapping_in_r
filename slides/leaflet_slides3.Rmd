@@ -19,11 +19,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-layout: false
-class: inverse center middle text-white
-
-.font200[Intro to RStudio Cloud]
-
 ```{r setup, include=FALSE}
 #remotes::install_github("mitchelloharawild/icons")
 library(fontawesome)
@@ -59,7 +54,6 @@ options(
 as_table <- function(...) knitr::kable(..., format='html', digits = 3)
 ```
 
----
 # About me
 
 .pull-left[
