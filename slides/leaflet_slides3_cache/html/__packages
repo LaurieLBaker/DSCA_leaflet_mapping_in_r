@@ -3,6 +3,8 @@ icons
 gapminder
 DT
 kableExtra
+rgeoboundaries
+stringr
 tidyverse
 ggplot2
 tibble
@@ -10,7 +12,6 @@ tidyr
 readr
 purrr
 dplyr
-stringr
 forcats
 leaflet
 sf

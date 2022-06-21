@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Spatial Data and Leaflet Mapping with R"
-subtitle: "IFREMER/MARBEC, 2022"
+subtitle: "Summer Institute in Computational Social Science, Covenant University, Nigeria 2022"
 author: "Dr. Laurie Baker"
 institute: "College of the Atlantic"
 date: "2020/04/09 (updated: `r Sys.Date()`)"
@@ -26,6 +26,11 @@ library(icons)
 library(gapminder)
 library(DT)
 library(kableExtra)
+# install.packages("remotes")
+# remotes::install_gitlab("dickoa/rgeoboundaries")
+# remotes::install_github("wmgeolab/rgeoboundaries")
+library(rgeoboundaries)
+library(stringr)
 
 knitr::opts_chunk$set(fig.width=5, fig.height=6, fig.retina=3,
                       out.width = "100%",
@@ -121,6 +126,8 @@ library(htmltools) ## For html
 
 library(leafsync) ## For placing plots side by side
 
+library(rgeoboundaries) ## Geographic administrative boundaries
+
 library(kableExtra) ## Table  output (in slides)
 
 ```
@@ -151,7 +158,7 @@ knitr::include_graphics(path = "images/spatial_data_types.jpg")
 ```  
 
 --
-`r icons::icon_style(icons::fontawesome("lightbulb", style = "solid"), scale = 2)` What are some other examples of point, line, and polygon data?
+`r icons::icon_style(icons::fontawesome("lightbulb", style = "solid"), scale = 1)` What are some other examples of point, line, and polygon data?
 
 ---
 layout: false
@@ -169,7 +176,7 @@ knitr::include_graphics(path = "images/spatial_data_types.jpg")
 
 ```  
 
-`r icons::icon_style(icons::fontawesome("lightbulb", style = "solid"), scale = 2)` How do we represent these forms as data?
+`r icons::icon_style(icons::fontawesome("lightbulb", style = "solid"), scale = 1)` How do we represent these forms as data?
 
 `r icons::icon_style(icons::fontawesome("info-circle", style = "solid"), scale = 1)` Hint: What do two points become when they are connected?
 ---
@@ -379,6 +386,173 @@ ggplot(nc) +
 ```
 ]
 
+
+---
+layout: true
+# Accessing Administrative Boundaries
+---
+
+.left-code[
+
+```{r first-country-1, eval=FALSE}
+
+# One country
+nigeria <- geoboundaries(country = "Nigeria") #<<
+
+ggplot(data = nigeria) +
+  geom_sf()
+```
+
+`r icons::icon_style(icons::fontawesome("info-circle", style = "solid"), scale = 1)` We can access administrative data using the `geoboundaries` function from the `rgeoboundaries` package.
+
+]
+
+.right-plot[
+
+```{r first-country-1, ref.label='first-country-1', echo=FALSE, out.width="95%", fig.alt="Map of Nigeria: admin level 0"}
+```
+
+]
+
+---
+
+.left-code[
+
+```{r first-country-2, eval=FALSE}
+
+# Two countries
+nigeria_chad <- geoboundaries(country = c("Nigeria", "Chad")) #<<
+
+ggplot(data = nigeria_chad) +
+  geom_sf()
+```
+
+]
+
+.right-plot[
+
+```{r first-country-2, ref.label='first-country-2', echo=FALSE, out.width="95%", fig.alt="Map of Nigeria and Chad: admin level 0."}
+```
+
+]
+
+---
+
+.left-code[
+
+```{r first-country-3, eval=FALSE}
+
+# Admin Level 1
+nigeria <- geoboundaries(country = "Nigeria", 
+                         adm_lvl = "adm1") #<<
+
+ggplot(data = nigeria) +
+  geom_sf()
+```
+
+`r icons::icon_style(icons::fontawesome("lightbulb", style = "solid"), scale = 1)` Find out more administrative boundaries and other open data sources tutorials at [rspatialdata.github.io](https://rspatialdata.github.io)
+
+]
+
+.right-plot[
+```{r first-country-3, ref.label='first-country-3', echo=FALSE, out.width="95%", fig.alt="Map of Nigeria: admin level 1."}
+```
+]
+
+---
+
+```{r first-country-4, echo=FALSE}
+nigeria %>%
+  kableExtra::kable()
+```
+
+
+---
+layout: true
+# Joining spreadsheet data to spatial data
+---
+
+* Let's say we have population data we want to match. 
+
+```{r nigeria-pop, eval=TRUE, echo = FALSE}
+
+# Two countries
+nigeria_pop <- read_csv(file = "data/nga_admpop_adm1_2020.csv") #<<
+
+head(nigeria_pop)
+```
+
+`r icons::icon_style(icons::fontawesome("lightbulb", style = "solid"), scale = 2)` In what column do we find spatial information we can use to match this data to the other dataset?
+
+---
+
+* We can match the data based on the names of the administrative boundaries.
+
+```{r nigeria-pop-spatial-join-2, eval=TRUE, echo = TRUE}
+
+# Joining Nigeria spatial data to the population data by the admin name columns
+
+nigeria_pop <- nigeria_pop %>%
+  mutate(ADM1_NAME = str_to_title(ADM1_NAME, locale = "en"))
+
+# how well do they match up?
+anti_join(x = nigeria, 
+          y = nigeria_pop,
+          by = c("shapeName" = "ADM1_NAME"))
+```
+
+
+???
+
+Often one of the trickiest part is to get the spelling of regions to match up. We can check where mismatches occur with an `anti_join`. The NA here is from Akwa Lbom and Akwa lbom. 
+
+---
+
+* We can fix mismatches using `case_when`
+
+```{r nigeria-pop-spatial-join, eval=TRUE, echo = TRUE}
+
+# Joining Nigeria spatial data to the population data by the administrative data column
+
+nigeria_pop <- nigeria_pop %>%
+  mutate(ADM1_NAME = str_to_title(ADM1_NAME, locale = "en"),
+         ADM1_NAME_SC = case_when(ADM1_NAME == "Akwa Ibom" ~ "Akwa lbom",
+                               TRUE ~ ADM1_NAME))
+
+nigeria_df <- left_join(x = nigeria, 
+                        y = nigeria_pop,
+                        by = c("shapeName" = "ADM1_NAME_SC"))
+
+```
+
+`r icons::icon_style(icons::fontawesome("info-circle", style = "solid"), scale = 1)` We can use `case_when` to change the name to match. 
+
+---
+
+
+* Now we can create our map
+
+.left-code[
+
+```{r first-nigeria-map3, eval=FALSE}
+
+ggplot(data = nigeria_df) +
+  geom_sf(aes(fill = T_TL)) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       fill = "Total Population")
+
+```
+
+]
+
+.right-plot[
+```{r first-nigeria-map3, ref.label='first-nigeria-map3', echo=FALSE, out.width="95%", fig.alt="Map of Nigeria with admin 1 areas filled by population"}
+```
+]
+
+
+
 ---
 layout: true
 # Coordinate reference system
@@ -418,9 +592,9 @@ layout: true
 # Coordinate reference systems skew true size
 ---
 
-```{r kenya-true-size, fig.alt = "Map of the world showing France overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is", echo=FALSE, out.width = "50%"}
+```{r nigeria-true-size, fig.alt = "Map of the world showing Nigeria overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is", echo=FALSE, out.width = "50%"}
 
-knitr::include_graphics(path = "France_true_size.PNG")
+knitr::include_graphics(path = "images/Nigeria_true_size.PNG")
 
 ```
 
@@ -558,10 +732,10 @@ leaflet(data = nc) %>%
           zoom = 5) #<<
 ```
 
-* **Your Turn**: Try setting lng to 3.17 and lat to 44.37. Try setting different values between 0 and 10 for the zoom.
+<!-- * **Your Turn**: Try setting lng to 3.17 and lat to 44.37. Try setting different values between 0 and 10 for the zoom. -->
 
 
-<!-- * **Your Turn**: Try setting lng to 38 and lat to 1. Try setting different values between 0 and 10 for the zoom. -->
+* **Your Turn**: Try setting lng to 8.13 and lat to 6.88. Try setting different values between 0 and 10 for the zoom.
 
 ]
 
@@ -576,11 +750,11 @@ leaflet(data = nc) %>%
 
 * We can set the view using `setView()`
 
-```{r first-leaflet-map-france, eval=FALSE}
+```{r first-leaflet-map-nigeria, eval=FALSE}
 leaflet(data = nc) %>%
   addTiles() %>%
-  setView(lng = 3.17, #<<
-          lat = 44.37, #<<
+  setView(lng = 8.13, #<< 
+          lat = 6.88, #<<
           zoom = 6) #<<
 ```
 
@@ -599,7 +773,7 @@ leaflet(data = nc) %>%
 ```{r first-leaflet-map-kenya, ref.label='first-leaflet-map-kenya', echo=FALSE, eval=FALSE, out.width="100%", fig.alt="Leaflet map of Kenya with open street map background"}
 ```
 
-```{r first-leaflet-map-france, ref.label='first-leaflet-map-france', echo=FALSE, out.width="100%", fig.alt="Leaflet map of France with open street map background"}
+```{r first-leaflet-map-nigeria, ref.label='first-leaflet-map-nigeria', echo=FALSE, out.width="100%", fig.alt="Leaflet map of Nigeria with open street map background"}
 ```
 ]
 
@@ -1160,6 +1334,7 @@ layout: true
 * [Afrimapr: Intro to Spatial Data in R (Tutorial)](https://andysouth.shinyapps.io/intro-to-spatial-r/)
 * [Afrimapr: Getting Data into R (Tutorial) ](https://andysouth.shinyapps.io/get-my-data-in/)
 * [Afrimapr: Joining Spreadsheet Data (Tutorial) ](https://andysouth.shinyapps.io/get-my-data-in/)
+* [Rspatialdata.github.io](https://rspatialdata.github.io)
 
 
 ---
