@@ -594,11 +594,6 @@ layout: true
 # Coordinate reference systems skew true size
 ---
 
-```{r nigeria-true-size, fig.alt = "Map of the world showing Nigeria overlaid on Greenland. The map demonstrates how coordinate reference systems skew our perception of how big a country is", echo=FALSE, out.width = "50%"}
-
-knitr::include_graphics(path = "images/Nigeria_true_size.PNG")
-
-```
 
 [The True Size Of: thetruesize.com](https://thetruesize.com/#?borders=1~!MTczMDY3NDE.MTE4OTczMjc*MjU3NDY1NzA(MzkyMTU3MA~!KE*OTYxNTIxNw.MTY3MDYyNzg)
 
