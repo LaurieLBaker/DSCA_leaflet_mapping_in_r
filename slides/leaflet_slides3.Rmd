@@ -126,6 +126,8 @@ library(htmltools) ## For html
 
 library(leafsync) ## For placing plots side by side
 
+library(stringr) ## For character string manipulation
+
 library(rgeoboundaries) ## Geographic administrative boundaries
 
 library(kableExtra) ## Table  output (in slides)
@@ -652,6 +654,9 @@ layout: true
 
 --
 
+* We can access administrative boundaries for several countries using the `rgeoboundaries` package.
+--
+
 * When we are working with spatial data we need to take into account the coordinate reference system.
 
 --
@@ -817,12 +822,16 @@ leaflet(data = nc) %>%
           zoom = 5) %>%
   addPolygons() #<<
 ```
+
+* **Your Turn**: Try creating a leaflet map with the nigeria data.
 ]
 
 .right-plot[
 ```{r first-leaflet-map1e, ref.label='first-leaflet-map1e', echo=FALSE, fig.alt="Leaflet map of Southeastern USA with terrain base map with blue polygons showing outline of counties in North Carolina"}
 ```
 ]
+
+
 
 ---
 layout: true
@@ -931,7 +940,7 @@ bins <- seq(from = 0, to = 25000, by = 5000)
 pal74 <- colorBin("OrRd", domain = nc$births1974, bins = bins) 
 ```
 
-
+* **Your Turn**: Try creating a color palette for the nigeria data for the total population variable `TL`
 ---
 
 .left-code[
@@ -986,7 +995,7 @@ leaflet(data = nc) %>%
 ```{r first-leaflet-map1g, ref.label='first-leaflet-map1g', echo=FALSE, out.width="100%", fig.alt="Leaflet map of Southeastern USA with ESRI ocean base map with blue polygons showing outline of counties in North Carolina. Counties are colored by the number of births. The fill is not transparent."}
 ```
 
-* **Your Turn** Try changing the `color`, `opacity`, and `weight`
+* **Your Turn** Try changing the `color`, `opacity`, and `weight`. Next try adding the palette to the Nigeria plot.
 ]
 
 ---
@@ -1335,6 +1344,7 @@ layout: true
 * [Afrimapr: Getting Data into R (Tutorial) ](https://andysouth.shinyapps.io/get-my-data-in/)
 * [Afrimapr: Joining Spreadsheet Data (Tutorial) ](https://andysouth.shinyapps.io/get-my-data-in/)
 * [Rspatialdata.github.io](https://rspatialdata.github.io)
+* [Humanitarian Data Exchange](https://data.humdata.org)
 
 
 ---
