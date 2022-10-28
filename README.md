@@ -54,6 +54,9 @@ Students should have completed the course Introduction to R. The students will n
 1. Access the [slides using this link](slides/leaflet_slides2.html)
 2. Download the [tutorial using this link](tutorial/leaflet_tutorial.Rmd)
 
+**College of the Atlantic Training Materials**
+1. Access the [slides using this link](slides/leaflet_slides3.html)
+
 **Acknowledgements**
 
 The slide formatting comes from gadenbuie's [gentle introduction to ggplot2](https://pkg.garrickadenbuie.com/gentle-ggplot2/#1).

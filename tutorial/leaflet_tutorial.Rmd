@@ -6,13 +6,16 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-## R Markdown
+# Package Installation
 
 ```{r}
 # Use install.packages("<package_name>") to install any of the packages below
+# install.packages("remotes")
+# remotes::install_gitlab("dickoa/rgeoboundaries")
+
 library(tidyverse) ## For plotting and data wrangling.
 
 library(leaflet) ## For leaflet interactive maps
@@ -27,6 +30,9 @@ library(leafsync) ## For placing plots side by side
 
 library(kableExtra) ## Table output
 
+library(stringr) ## String manipulation
+
+library(rgeoboundaries) ## Administrative boundaries
 ```
 
 
@@ -97,6 +103,110 @@ ggplot(nc) +
   scale_y_continuous(breaks = 34:36) #<<
 ```
 
+## Accessing Administrative Boundaries
+
+```{r access admin 0 boundaries, fig.alt="Map of Nigeria"}
+
+# One country
+nigeria <- geoboundaries(country = "Nigeria") #<<
+
+ggplot(data = nigeria) +
+  geom_sf()
+```
+
+
+```{r access admin 0 boundareis for nigeria and chad, fig.alt="Map of Nigeria and Chad: admin level 0."}
+
+# Two countries
+nigeria_chad <- geoboundaries(country = c("Nigeria", "Chad")) #<<
+
+ggplot(data = nigeria_chad) +
+  geom_sf()
+```
+
+```{r access admin level 1 boundaries, fig.alt="Map of Nigeria: admin level 1."}
+
+# Admin Level 1
+nigeria <- geoboundaries(country = "Nigeria", 
+                         adm_lvl = "adm1") #<<
+
+ggplot(data = nigeria) +
+  geom_sf()
+```
+
+`r icons::icon_style(icons::fontawesome("lightbulb", style = "solid"), scale = 1)` Find out more administrative boundaries and other open data sources tutorials at [rspatialdata.github.io](https://rspatialdata.github.io)
+
+
+```{r View Nigeria data}
+nigeria %>%
+  kableExtra::kable()
+```
+
+### Joining spreadsheet data to spatial data
+
+
+* Let's say we have population data we want to match. 
+
+```{r nigeria-pop}
+
+# Two countries
+nigeria_pop <- read_csv(file = "data/nga_admpop_adm1_2020.csv") #<<
+
+head(nigeria_pop)
+```
+
+`r icons::icon_style(icons::fontawesome("lightbulb", style = "solid"), scale = 2)` In what column do we find spatial information we can use to match this data to the other dataset?
+
+* We can match the data based on the names of the administrative boundaries.
+
+```{r nigeria-pop-spatial-join}
+
+# Joining Nigeria spatial data to the population data by the admin name columns
+
+nigeria_pop <- nigeria_pop %>%
+  mutate(ADM1_NAME = str_to_title(ADM1_NAME, locale = "en"))
+
+# how well do they match up?
+anti_join(x = nigeria, 
+          y = nigeria_pop,
+          by = c("shapeName" = "ADM1_NAME"))
+```
+
+
+Often one of the trickiest part is to get the spelling of regions to match up. We can check where mismatches occur with an `anti_join`. The NA here is from Akwa Lbom and Akwa lbom. 
+
+* We can fix mismatches using `case_when`
+
+```{r nigeria-pop-spatial-join-2}
+
+# Joining Nigeria spatial data to the population data by the administrative data column
+
+nigeria_pop <- nigeria_pop %>%
+  mutate(ADM1_NAME = str_to_title(ADM1_NAME, locale = "en"),
+         ADM1_NAME_SC = case_when(ADM1_NAME == "Akwa Ibom" ~ "Akwa lbom",
+                               TRUE ~ ADM1_NAME))
+
+nigeria_df <- left_join(x = nigeria, 
+                        y = nigeria_pop,
+                        by = c("shapeName" = "ADM1_NAME_SC"))
+
+```
+
+`r icons::icon_style(icons::fontawesome("info-circle", style = "solid"), scale = 1)` We can use `case_when` to change the name to match. 
+
+* Now we can create our map
+
+```{r first-nigeria-map3, fig.alt="Map of Nigeria with admin 1 areas filled by population"}
+
+ggplot(data = nigeria_df) +
+  geom_sf(aes(fill = T_TL)) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       fill = "Total Population")
+
+```
+
+
 ## Coordinate reference system
 
 * Every location on earth is specified by a longitude and latitude. 
@@ -112,6 +222,16 @@ st_crs(nc)
 ```
 
 * The CRS is specified in the attributes `epsg` and `proj4string`. 
+
+
+```{r checking the CRS Nigeria, eval = FALSE}
+
+### Fill in the blank to check the nigeria data set
+
+st_crs(____)
+
+```
+
 
 ## Transforming coordinate reference system
 
@@ -129,6 +249,17 @@ nc <- st_transform(nc, "+init=epsg:4326")
 st_crs(nc)
 
 ```
+
+
+```{r changing the CRS using st_transform nigeria, eval = FALSE}
+
+## Fill in the blanks for the nigeria dataset
+nigeria_df <- st_transform(nigeria_df, "+init=epsg:4326")
+
+______(nc)
+
+```
+
 
 # Our first leaflet map
 
@@ -185,6 +316,21 @@ leaflet(data = nc) %>%
   addPolygons() #<<
 ```
 
+* Fill in the blanks to create a leaflet map with the Nigeria data. What longitude and latitude do you want to set the view with?
+
+
+```{r nigeria-first-leaflet, eval = FALSE}
+
+leaflet(data = ) %>%
+  addProviderTiles(providers$Stamen.Terrain) %>%
+  setView(lng = _____, 
+          lat = _____, 
+          zoom = 5) %>%
+  addPolygons() #<<
+
+```
+
+
 ## Creating a colour palette
 
 * What type of data are we showing? 
@@ -235,6 +381,21 @@ pal79 <- colorBin("OrRd", domain = nc$births1979, bins = bins)
 ```
 
 
+* What might make sense as bins for showing our Nigeria population?
+
+```{r bins for nigeria plot, eval = FALSE}
+
+summary(nigeria_df$TL)
+
+bins <- seq(from = ___, to = ____, by = ____)
+
+
+pal <- colorBin("OrRd", domain = ________, bins = bins) 
+
+```
+
+
+
 * Customising `addPolygons()`
 
 ```{r first-leaflet-map1f, eval=TRUE}
@@ -251,6 +412,29 @@ leaflet(data = nc) %>%
     weight = 2 #<<
   ) 
 ```
+
+
+
+
+```{r nigeria leaflet 2, eval = FALSE}
+
+# Try further customizing your Nigeria plot
+
+leaflet(data = ) %>%
+  addProviderTiles(providers$Stamen.Terrain) %>%
+  setView(lng = _____, 
+          lat = _____, 
+          zoom = 5) %>%
+  addPolygons(
+    fillColor = ~pal(_______),
+    fillOpacity = 0.7, #<<
+    color = "white", #<<
+    opacity = 1, #<<
+    weight = 2 #<<
+  ) #<<
+
+```
+
 
 * Customising `addPolygons()`
 

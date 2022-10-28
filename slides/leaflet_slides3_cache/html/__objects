@@ -1,0 +1,61 @@
+unnamed-chunk-1	
+spatial-data-types	
+spatial-data-types2	
+nc-data	nc_df
+nc-data2	nc
+nc-view	
+nc-str	
+first-map1a	
+first-map1b	
+first-map1c	
+first-map1d	
+first-map1e	
+first-country-1	nigeria
+first-country-2	nigeria_chad
+first-country-3	nigeria
+first-country-4	
+nigeria-pop	nigeria_pop
+nigeria-pop-spatial-join-2	nigeria_pop
+nigeria-pop-spatial-join	nigeria_df	nigeria_pop
+unnamed-chunk-2	m2
+first-nigeria-map3	
+orange-peel-projection	
+nigeria-true-size	
+checking the CRS	
+changing the CRS using st_transform	nc
+first-leaflet-map1a	.leaflet_slides3_cache/html/first-leaflet-map1a_e32b0b81c0f1a87dc5059f658f1b346d_meta
+first-leaflet-map1b	.leaflet_slides3_cache/html/first-leaflet-map1b_eb126b3f59fbe99a0ecfb76fd0d11ff9_meta
+first-leaflet-map1c	.leaflet_slides3_cache/html/first-leaflet-map1c_166a8caaa6946c3a8d398f83bf755833_meta
+first-leaflet-map-nigeria	.leaflet_slides3_cache/html/first-leaflet-map-nigeria_20b152b3e3f22d4fcd60eee2721f57d6_meta
+first-leaflet-map-kenya	
+first-leaflet-map1d-provider	.leaflet_slides3_cache/html/first-leaflet-map1d-provider_997d0cb39379f4eba8c9401806a0bed8_meta
+first-leaflet-map1e	.leaflet_slides3_cache/html/first-leaflet-map1e_26acf02af8929627534e02cb6f376831_meta
+Color-brewer	
+numeric-data	
+categorical-data	
+pal-sequential	
+pal-diverging	
+Defining colour bins	bins
+Defining the palette	pal74
+first-leaflet-map1f	.leaflet_slides3_cache/html/first-leaflet-map1f_7d9fee22a4793aa087e396dc6f289d5d_meta
+first-leaflet-map1g	.leaflet_slides3_cache/html/first-leaflet-map1g_9e6904fc1430ea1091eb4d1041d6863d_meta
+what can you customise with addPolygons	
+first-leaflet-map1h	m1	.leaflet_slides3_cache/html/first-leaflet-map1h_dd1a9f05d681c2ec73233afd5974bdab_meta
+first-leaflet-map1j	.leaflet_slides3_cache/html/first-leaflet-map1j_d8a25e3258c52c2abf205863912408de_meta
+Make our labels	labels
+first-leaflet-map1k	m1	.leaflet_slides3_cache/html/first-leaflet-map1k_719213a2e9f41665902e0025c4f7ce87_meta
+first-leaflet-map1l	m1	.leaflet_slides3_cache/html/first-leaflet-map1l_9b516b2dd90a6ab3cb851291b52a3bc0_meta
+leaflet-map-points	work
+data-preview	
+leaflet-map-work	.leaflet_slides3_cache/html/leaflet-map-work_b1e5b9e34546dd8c1300932a68fb84ad_meta
+work-leaflet-map2	.leaflet_slides3_cache/html/work-leaflet-map2_ee190ddc5740ecadb2adf71e9a19f972_meta
+point-labels	labels
+work-map-labels	.leaflet_slides3_cache/html/work-map-labels_97299d588791d16e0c58a6a137cd313b_meta
+Defining colour bins2	bins
+Defining the palette2	pal79
+labels for second map blank	
+labels for second map	labels79
+unnamed-chunk-3	.leaflet_slides3_cache/html/unnamed-chunk-3_46c551a5cb26a3774c5e289660af9781_meta
+leaflet-map2a	m2
+unnamed-chunk-4	.leaflet_slides3_cache/html/unnamed-chunk-4_8faedbe29b846d86f14e2cc997211351_meta
+leaflet-map3	.leaflet_slides3_cache/html/leaflet-map3_1fd8c96992b2d16833a72f875b4d096c_meta

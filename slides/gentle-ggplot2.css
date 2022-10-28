@@ -17,6 +17,10 @@ strong {
   background-position: 88% 70%;
 }
 
+.remark-code, .remark-inline-code {
+    font-family: 'Fira Mono', 'Source Code Pro', monospace;
+}
+
 .footnote {
     position: absolute;
     bottom: 1em;
