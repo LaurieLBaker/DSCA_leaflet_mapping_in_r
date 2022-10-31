@@ -657,7 +657,7 @@ leaflet(data = nc) %>%
   addPolygons() #<<
 ```
 
-* **Your Turn**: Try creating a leaflet map with the nigeria data.
+* **Question**: What layer in `ggplot2` is similar to `addPolygons()`? Under the Functions section of the helpfile `?addPolygons()` what other graphic elements and layers can we add?
 ]
 
 .right-plot[
