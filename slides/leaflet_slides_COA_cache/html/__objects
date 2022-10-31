@@ -1,0 +1,61 @@
+unnamed-chunk-1	
+spatial-data-types	
+spatial-data-types2	
+nc-data	nc_df
+nc-data2	nc
+nc-view	
+nc-str	
+first-map1a	
+first-map1b	
+first-map1c	
+first-map1d	
+first-map1e	
+first-country-1	nigeria
+first-country-2	nigeria_chad
+first-country-3	nigeria
+first-country-4	
+orange-peel-projection	
+checking the CRS	
+changing the CRS using st_transform	nc
+first-leaflet-map1a	.leaflet_slides_COA_cache/html/first-leaflet-map1a_1db33b405d7f89d2fa8132e3dea6c9d0_meta
+first-leaflet-map1b	.leaflet_slides_COA_cache/html/first-leaflet-map1b_490e3bd4ea3d80ebfa7a821eba1689b5_meta
+first-leaflet-map1c	.leaflet_slides_COA_cache/html/first-leaflet-map1c_6feece5a5d3499c835d4fe4ac5041d29_meta
+first-leaflet-map-nigeria	.leaflet_slides_COA_cache/html/first-leaflet-map-nigeria_1086915151e32a704ef7fa1590818d3e_meta
+first-leaflet-map-kenya	
+first-leaflet-map1d-provider	.leaflet_slides_COA_cache/html/first-leaflet-map1d-provider_2dd94117bd710d97711b6fc50a3ad234_meta
+first-leaflet-map1e	.leaflet_slides_COA_cache/html/first-leaflet-map1e_68fd005fdf17141f60f6a12d9fb2fd13_meta
+Color-brewer	
+numeric-data	
+categorical-data	
+pal-sequential	
+pal-diverging	
+Defining colour bins	bins
+Defining the palette	pal74
+first-leaflet-map1f	.leaflet_slides_COA_cache/html/first-leaflet-map1f_970f0632466119cb114fc222760c5570_meta
+first-leaflet-map1g	.leaflet_slides_COA_cache/html/first-leaflet-map1g_0fa0c4e5c717c58ea5040bfe3c120c8e_meta
+what can you customise with addPolygons	
+first-leaflet-map1h	m1	.leaflet_slides_COA_cache/html/first-leaflet-map1h_a45a3a469919292a2bffaf7e92596023_meta
+first-leaflet-map1j	.leaflet_slides_COA_cache/html/first-leaflet-map1j_8cdd0f49c09d9ce9cace0b841d8daea2_meta
+Make our labels	labels
+first-leaflet-map1k	m1	.leaflet_slides_COA_cache/html/first-leaflet-map1k_46bb57367b7691dca53b54e781c20031_meta
+first-leaflet-map1l	m1	.leaflet_slides_COA_cache/html/first-leaflet-map1l_6d1fee2c7a3408532b6de30fe642f29b_meta
+leaflet-map-points	work
+data-preview	
+leaflet-map-work	.leaflet_slides_COA_cache/html/leaflet-map-work_e28a6e6220d97ea0f7722edab8e6a76c_meta
+work-leaflet-map2	.leaflet_slides_COA_cache/html/work-leaflet-map2_510669a1ac554f279ac23d9cbd05f1c3_meta
+point-labels	labels
+work-map-labels	.leaflet_slides_COA_cache/html/work-map-labels_435e0f0a883e679e0a0874ac97528287_meta
+nigeria-pop	nigeria_pop
+nigeria-pop-spatial-join-2	nigeria_pop
+nigeria-pop-spatial-join	nigeria_df	nigeria_pop
+first-nigeria-map3	
+Defining colour bins2	bins
+Defining the palette2	pal79
+labels for second map blank	
+labels for second map	labels79
+unnamed-chunk-2	m2
+leaflet-map2a	m2
+unnamed-chunk-3	.leaflet_slides_COA_cache/html/unnamed-chunk-3_7a716fa29b3c3c592723b9218dced7d8_meta
+leaflet-map3	.leaflet_slides_COA_cache/html/leaflet-map3_df6baf3ffbd08319502986115c6c7367_meta
+first-leaflet-map-nc	
+first-leaflet-map-me	.leaflet_slides_COA_cache/html/first-leaflet-map-me_a621b37176e7bf9c96e5bd7a8fef8555_meta
