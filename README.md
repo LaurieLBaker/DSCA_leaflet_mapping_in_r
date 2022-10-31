@@ -51,11 +51,12 @@ Intermediate
 Students should have completed the course Introduction to R. The students will need a recent version of R and RStudio and the packages tidyverse, gapminder, and leaflet. 
 
 **Order of material list**
-1. Access the [slides using this link](slides/leaflet_slides2.html)
+1. Access the [slides using this link](slides/leaflet_slides3.html)
 2. Download the [tutorial using this link](tutorial/leaflet_tutorial.Rmd)
 
 **College of the Atlantic Training Materials**
-1. Access the [slides using this link](slides/leaflet_slides3.html)
+1. Access the [slides using this link](slides/leaflet_slides_COA.html)
+2. Access the [tutorial using this link](tutorial/leaflet_tutorial_coa.Rmd)
 
 **Acknowledgements**
 
