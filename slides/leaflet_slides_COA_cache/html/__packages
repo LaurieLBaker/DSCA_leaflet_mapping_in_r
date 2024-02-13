@@ -13,6 +13,7 @@ readr
 purrr
 dplyr
 forcats
+lubridate
 leaflet
 sf
 RColorBrewer

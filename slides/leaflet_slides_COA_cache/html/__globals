@@ -10,20 +10,20 @@ first-map1b	geom_sf	ggplot	nc
 first-map1c	aes	births1974	geom_sf	ggplot	nc
 first-map1d	aes	births1974	geom_sf	ggplot	labs	nc
 first-map1e	aes	births1974	geom_sf	ggplot	labs	nc	scale_y_continuous
-first-country-1	geoboundaries	geom_sf	ggplot
-first-country-2	c	geoboundaries	geom_sf	ggplot
-first-country-3	geoboundaries	geom_sf	ggplot
-first-country-4	%>%	::	nigeria
 orange-peel-projection	::
 checking the CRS	nc	st_crs
 changing the CRS using st_transform	st_crs	st_transform
 first-leaflet-map1a	leaflet	nc
 first-leaflet-map1b	%>%	addTiles	leaflet	nc
 first-leaflet-map1c	%>%	addTiles	leaflet	nc	setView
-first-leaflet-map-nigeria	%>%	addTiles	leaflet	nc	setView
-first-leaflet-map-kenya	%>%	addTiles	leaflet	nc	setView
-first-leaflet-map1d-provider	$	%>%	addProviderTiles	leaflet	nc	providers	setView
-first-leaflet-map1e	$	%>%	addPolygons	addProviderTiles	leaflet	nc	providers	setView
+first-leaflet-map-me	%>%	addTiles	leaflet	nc	setView
+first-leaflet-map-nc	%>%	addTiles	leaflet	nc	setView
+first-leaflet-map1d-provider	%>%	$	addProviderTiles	leaflet	nc	providers	setView
+first-leaflet-map1e	%>%	$	addPolygons	addProviderTiles	leaflet	nc	providers	setView
+leaflet-map-points	c	data.frame
+data-preview	head	work
+leaflet-map-work	%>%	~	$	addCircleMarkers	addProviderTiles	leaflet	providers	work
+work-leaflet-map2	%>%	~	$	addCircleMarkers	addProviderTiles	leaflet	markerClusterOptions	providers	work
 Color-brewer	::
 numeric-data	::
 categorical-data	::
@@ -31,31 +31,22 @@ pal-sequential	display.brewer.all
 pal-diverging	display.brewer.all
 Defining colour bins	$	nc	seq	summary
 Defining the palette	$	bins	colorBin	nc
-first-leaflet-map1f	$	%>%	~	addPolygons	addProviderTiles	leaflet	nc	providers	setView
-first-leaflet-map1g	$	%>%	~	addPolygons	addProviderTiles	leaflet	nc	providers	setView
+first-leaflet-map1f	%>%	~	$	addPolygons	addProviderTiles	leaflet	nc	providers	setView
+first-leaflet-map1g	%>%	~	$	addPolygons	addProviderTiles	leaflet	nc	providers	setView
 what can you customise with addPolygons	?	addPolygons
-first-leaflet-map1h	$	%>%	~	addPolygons	addProviderTiles	leaflet	nc	providers	setView
+first-leaflet-map1h	%>%	~	$	addPolygons	addProviderTiles	leaflet	nc	providers	setView
 first-leaflet-map1j	%>%	~	addPolygons	highlightOptions	m1
-Make our labels	$	%>%	::	head	lapply	nc	sprintf
+Make our labels	::	%>%	$	head	lapply	nc	sprintf
 first-leaflet-map1k	%>%	~	addPolygons	highlightOptions	labels	nc
 first-leaflet-map1l	%>%	~	addLegend	pal74
-leaflet-map-points	c	data.frame
-data-preview	head	work
-leaflet-map-work	$	%>%	~	addCircleMarkers	addProviderTiles	leaflet	providers	work
-work-leaflet-map2	$	%>%	~	addCircleMarkers	addProviderTiles	leaflet	markerClusterOptions	providers	work
-point-labels	$	%>%	::	lapply	sprintf	work
-work-map-labels	$	%>%	~	addCircleMarkers	addProviderTiles	leaflet	providers	work
-nigeria-pop	head	read_csv
-nigeria-pop-spatial-join-2	%>%	ADM1_NAME	anti_join	c	mutate	nigeria	str_to_title
-nigeria-pop-spatial-join	%>%	~	ADM1_NAME	c	case_when	left_join	mutate	nigeria	str_to_title
-first-nigeria-map3	aes	geom_sf	ggplot	labs	nigeria_df	T_TL
+point-labels	::	%>%	$	lapply	sprintf	work
+work-map-labels	%>%	~	$	addCircleMarkers	addProviderTiles	leaflet	providers	work
+first-country-1	geoboundaries	geom_sf	ggplot
 Defining colour bins2	$	nc	seq	summary
 Defining the palette2	$	bins	colorBin	nc
-labels for second map blank	$	%>%	::	lapply	nc	sprintf
-labels for second map	$	%>%	::	lapply	nc	sprintf
-unnamed-chunk-2	$	%>%	~	addPolygons	addProviderTiles	highlightOptions	labels79	leaflet	nc	providers	setView
+labels for second map blank	::	%>%	$	lapply	nc	sprintf
+labels for second map	::	%>%	$	lapply	nc	sprintf
+unnamed-chunk-2	%>%	~	$	addPolygons	addProviderTiles	highlightOptions	labels79	leaflet	nc	providers	setView
 leaflet-map2a	%>%	~	addLegend	pal79
 unnamed-chunk-3	m2
 leaflet-map3	::	m1	m2
-first-leaflet-map-nc	%>%	addTiles	leaflet	nc	setView
-first-leaflet-map-me	%>%	addTiles	leaflet	nc	setView

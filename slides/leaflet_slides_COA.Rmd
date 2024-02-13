@@ -626,7 +626,7 @@ layout: true
 
 ```{r first-leaflet-map1d-provider, eval=FALSE}
 leaflet(data = nc) %>%
-  addProviderTiles(providers$Stamen.Terrain) %>%
+  addProviderTiles(providers$OpenStreetMap) %>%
   setView(lng = -80, 
           lat = 34.5, 
           zoom = 5)
@@ -637,7 +637,7 @@ leaflet(data = nc) %>%
 
 .right-plot[
 
-```{r first-leaflet-map1d-provider, ref.label='first-leaflet-map1d-provider', echo=FALSE, out.width="100%", fig.alt = "Leaflet map of Southeastern USA with terrain base map"}
+```{r first-leaflet-map1d-provider, ref.label='first-leaflet-map1d-provider', echo=FALSE, out.width="100%", fig.alt = "Leaflet map of Southeastern USA with open base map"}
 ```
 
 N.B. The different provider tiles come with different licensing and some require an API.
@@ -650,7 +650,7 @@ N.B. The different provider tiles come with different licensing and some require
 
 ```{r first-leaflet-map1e, eval=FALSE}
 leaflet(data = nc) %>%
-  addProviderTiles(providers$Stamen.Terrain) %>%
+  addProviderTiles(providers$OpenStreetMap) %>%
   setView(lng = -80, 
           lat = 34.5, 
           zoom = 5) %>%
@@ -745,8 +745,7 @@ layout: true
 ```{r leaflet-map-work, eval=FALSE}
 
 leaflet(work) %>% 
-      addProviderTiles(providers$Stamen.Watercolor) %>%
-      addProviderTiles(providers$Stamen.TerrainLabels) %>%
+      addProviderTiles(providers$OpenStreetMap) %>%
       addCircleMarkers(~lon, ~lat) #<<
 ```
 
@@ -769,8 +768,7 @@ leaflet(work) %>%
 
 ```{r work-leaflet-map2, eval=FALSE}
 leaflet(work) %>% 
-      addProviderTiles(providers$Stamen.Watercolor) %>%
-      addProviderTiles(providers$Stamen.TerrainLabels) %>%
+      addProviderTiles(providers$OpenStreetMap) %>%
       addCircleMarkers(~lon, ~lat, clusterOptions = markerClusterOptions()) #<<
 ```
 
@@ -907,7 +905,7 @@ pal74 <- colorBin("OrRd", domain = nc$births1974, bins = bins)
 
 ```{r first-leaflet-map1f, eval=FALSE}
 leaflet(data = nc) %>%
-  addProviderTiles(providers$Esri.OceanBasemap) %>%
+  addProviderTiles(providers$OpenStreetMap) %>%
   setView(lng = -80, 
           lat = 34.5, 
           zoom = 6) %>%
@@ -934,7 +932,7 @@ leaflet(data = nc) %>%
 
 ```{r first-leaflet-map1g, eval=FALSE}
 leaflet(data = nc) %>%
-  addProviderTiles(providers$Esri.OceanBasemap) %>%
+  addProviderTiles(providers$OpenStreetMap) %>%
   setView(lng = -80, 
           lat = 34.5, 
           zoom = 6) %>%
@@ -986,7 +984,7 @@ layout: true
 
 ```{r first-leaflet-map1h, eval=FALSE}
 m1 <- leaflet(data = nc) %>% #<<
-  addProviderTiles(providers$Stamen.Terrain) %>%
+  addProviderTiles(providers$OpenStreetMap) %>%
   setView(lng = -80, 
           lat = 34.5, 
           zoom = 6)
@@ -1218,173 +1216,6 @@ layout: true
 
 ---
 layout: true
-# Accessing Administrative Boundaries
----
-
-.left-code[
-
-```{r first-country-1, eval=FALSE}
-
-# One country
-nigeria <- geoboundaries(country = "Nigeria") #<<
-
-ggplot(data = nigeria) +
-  geom_sf()
-```
-
-`r icons::icon_style(icons::fontawesome("info-circle", style = "solid"), scale = 1)` We can access administrative data using the `geoboundaries` function from the `rgeoboundaries` package.
-
-* Looking for US data? Check out [Different ways of plotting the U.S. map](https://jtr13.github.io/cc19/different-ways-of-plotting-u-s-map-in-r.html)
-
-]
-
-.right-plot[
-
-```{r first-country-1, ref.label='first-country-1', echo=FALSE, out.width="95%", fig.alt="Map of Nigeria: admin level 0"}
-```
-
-]
-
----
-
-.left-code[
-
-```{r first-country-2, eval=FALSE}
-
-# Two countries
-nigeria_chad <- geoboundaries(country = c("Nigeria", "Chad")) #<<
-
-ggplot(data = nigeria_chad) +
-  geom_sf()
-```
-
-]
-
-.right-plot[
-
-```{r first-country-2, ref.label='first-country-2', echo=FALSE, out.width="95%", fig.alt="Map of Nigeria and Chad: admin level 0."}
-```
-
-]
-
----
-
-.left-code[
-
-```{r first-country-3, eval=FALSE}
-
-# Admin Level 1
-nigeria <- geoboundaries(country = "Nigeria", 
-                         adm_lvl = "adm1") #<<
-
-ggplot(data = nigeria) +
-  geom_sf()
-```
-
-`r icons::icon_style(icons::fontawesome("lightbulb", style = "solid"), scale = 1)` Find out more administrative boundaries and other open data sources tutorials at [rspatialdata.github.io](https://rspatialdata.github.io)
-
-]
-
-.right-plot[
-```{r first-country-3, ref.label='first-country-3', echo=FALSE, out.width="95%", fig.alt="Map of Nigeria: admin level 1."}
-```
-]
-
----
-
-```{r first-country-4, echo=FALSE}
-nigeria %>%
-  kableExtra::kable()
-```
-
-
-
----
-layout: true
-# Joining spreadsheet data to spatial data
----
-
-* Let's say we have population data we want to match. 
-
-```{r nigeria-pop, eval=TRUE, echo = FALSE}
-
-# Two countries
-nigeria_pop <- read_csv(file = "data/nga_admpop_adm1_2020.csv") #<<
-
-head(nigeria_pop)
-```
-
-`r icons::icon_style(icons::fontawesome("lightbulb", style = "solid"), scale = 2)` In what column do we find spatial information we can use to match this data to the other dataset?
-
----
-
-* We can match the data based on the names of the administrative boundaries.
-
-```{r nigeria-pop-spatial-join-2, eval=TRUE, echo = TRUE}
-
-# Joining Nigeria spatial data to the population data by the admin name columns
-
-nigeria_pop <- nigeria_pop %>%
-  mutate(ADM1_NAME = str_to_title(ADM1_NAME, locale = "en")) # Make names Title Case
-
-# how well do they match up?
-anti_join(x = nigeria, 
-          y = nigeria_pop,
-          by = c("shapeName" = "ADM1_NAME"))
-```
-
-
-???
-
-Often one of the trickiest part is to get the spelling of regions to match up. We can check where mismatches occur with an `anti_join`. The NA here is from Akwa Lbom and Akwa lbom. 
-
----
-
-* We can fix mismatches using `case_when`
-
-```{r nigeria-pop-spatial-join, eval=TRUE, echo = TRUE}
-
-# Joining Nigeria spatial data to the population data by the administrative data column
-
-nigeria_pop <- nigeria_pop %>%
-  mutate(ADM1_NAME = str_to_title(ADM1_NAME, locale = "en"),
-         ADM1_NAME_SC = case_when(ADM1_NAME == "Akwa Ibom" ~ "Akwa lbom",
-                               TRUE ~ ADM1_NAME))
-
-nigeria_df <- left_join(x = nigeria, 
-                        y = nigeria_pop,
-                        by = c("shapeName" = "ADM1_NAME_SC"))
-
-```
-
-`r icons::icon_style(icons::fontawesome("info-circle", style = "solid"), scale = 1)` We can use `case_when` to change the name to match. 
-
----
-
-
-* Now we can create our map
-
-.left-code[
-
-```{r first-nigeria-map3, eval=FALSE}
-
-ggplot(data = nigeria_df) +
-  geom_sf(aes(fill = T_TL)) +
-  labs(x = "Longitude",
-       y = "Latitude",
-       fill = "Total Population")
-
-```
-
-]
-
-.right-plot[
-```{r first-nigeria-map3, ref.label='first-nigeria-map3', echo=FALSE, out.width="95%", fig.alt="Map of Nigeria with admin 1 areas filled by population"}
-```
-]
-
----
-layout: true
 # Colorbins
 ---
 
@@ -1448,7 +1279,7 @@ layout: true
 ```{r}
 
 m2 <- leaflet(data = nc) %>%
-  addProviderTiles(providers$Stamen.Terrain) %>%
+  addProviderTiles(providers$OpenStreetMap) %>%
   setView(lng = -80, lat = 34.5, zoom = 6) %>%
   addPolygons(
       fillColor = ~pal79(nc$births1979),
